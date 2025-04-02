@@ -1,5 +1,6 @@
 package com.flavio.api.controllers;
 
+import com.flavio.api.models.Task;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,9 +10,9 @@ import com.flavio.api.repositories.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
-
+@CrossOrigin(origins = "http://localhost:5174")
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 public class UserController {
     
     private UserService userService;
@@ -37,8 +38,9 @@ public class UserController {
     }
     
     @PutMapping("/{id}")
-    public void updateUser(@PathVariable String id, @RequestBody String entity) {
-       this.userService.getUserById(null);
+    public void updateUser(@PathVariable long id, @RequestBody String entity, User user) {
+        if (userService.getUserById(id).isPresent())
+            userService.updateUser(user);
     }
 
     @DeleteMapping("/{id}")
@@ -46,7 +48,7 @@ public class UserController {
         Optional<User> user = userRepository.findById(id);
 
         if (user.isPresent()) {
-            userService.deleteUser(user.get().getId());
+            userService.deleteUser(((User)(user.get())).getId());
             return ResponseEntity.ok("Usuario eliminado correctamente.");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");

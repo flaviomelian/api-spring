@@ -1,0 +1,13 @@
+table{
+    margin: 0 auto;
+}
+
+.warning{
+    background-color: #b5bc02;
+    color: #f6ff00;
+}
+
+.danger{
+    background-color: #990000;
+    color: #e80000;
+}
