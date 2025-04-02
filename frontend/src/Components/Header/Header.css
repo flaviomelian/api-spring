@@ -8,7 +8,7 @@
     padding-bottom: 1%;
     margin-top: 0vh;
     width: 100%;
-    background-image: linear-gradient(to bottom, #ffffff, #00000000);
+    background-image: linear-gradient(to bottom, #00a2ff, #00000000);
 }
 
 .header div {
@@ -16,8 +16,8 @@
 }
 
 .header div img:hover {
-    transform: scale(1.25);
-    transition: ease-in-out 0.2s;
+    filter: brightness(85%);
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
 .house{
