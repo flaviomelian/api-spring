@@ -71,12 +71,14 @@ const Team = () => {
                         <td>{user.role}</td>
                         <td>{user.email}</td>
                         <td>{user.salary} €</td>
-                        <td>
-                            <button className="btn warning">Editar</button>
-                        </td>
-                        <td>
-                            <button className="btn danger" onClick={handleDeleteUser}>Eliminar</button>
-                        </td>
+                        <div>
+                            <td>
+                                <button className="btn warning">Editar</button>
+                            </td>
+                            <td>
+                                <button className="btn danger" onClick={handleDeleteUser}>Eliminar</button>
+                            </td>
+                        </div>
                     </tr>
                 ))}    
                 </tbody>

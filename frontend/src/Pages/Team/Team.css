@@ -13,7 +13,7 @@
 }
 
 table{
-    width: 60%;
+    width: 70%;
     margin: 0 auto;
     padding: 3% 2% 3% 3%;
     background-color: #005499;
@@ -24,6 +24,11 @@ table{
 
 tbody{
     margin-top: 5%;
+}
+
+tbody div{
+    position: relative;
+    left: 15%;
 }
 
 .operations{
