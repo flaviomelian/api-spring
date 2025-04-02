@@ -1,0 +1,12 @@
+.dashboard{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.clean{
+    margin-top: 5%;
+    background-color: rgb(9, 85, 185);
+    margin: 2% auto;
+    width: 30%;
+}

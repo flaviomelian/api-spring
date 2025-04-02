@@ -1,6 +1,5 @@
 package com.flavio.api.controllers;
 
-import com.flavio.api.models.Task;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +9,7 @@ import com.flavio.api.repositories.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

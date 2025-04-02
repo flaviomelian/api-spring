@@ -1,16 +1,13 @@
-import './App.css'
-import Dashboard from "./Pages/Dashboard.jsx";
-import Header from "./Components/Header/Header.jsx";
-import Footer from "./Components/Footer/Footer.jsx";
-function App() {
+import { UserProvider } from './Context/Context';
+import router from './Routes/index'
+import { RouterProvider } from 'react-router-dom'
 
+function App() {
   return (
-    <>
-        <Header/>
-        <Dashboard/>
-        <Footer/>
-    </>
-  )
+    <UserProvider>
+      <RouterProvider router={router}/>
+    </UserProvider>
+  );
 }
 
-export default App
+export default App;

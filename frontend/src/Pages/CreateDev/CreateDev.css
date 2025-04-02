@@ -1,0 +1,50 @@
+#userForm{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.adjust{
+    margin-top: 10vh;
+}
+
+.input-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    justify-items: center;
+    justify-content: space-between;
+    margin: 3% 3% 3% 0%;
+    width: 100%;
+}
+
+label{
+    font-size: 22px;
+}
+
+input{
+    font-size: 20px;
+    width: 40%;
+    background-color: rgb(9, 85, 185);
+    color: #ffffff;
+    border-radius: 5% / 40%;
+    padding-left: 2%;
+    border: 1px solid #003060;
+}
+
+#role{
+    width: 43%;
+    font-size: 20px;
+    background-color: rgb(9, 85, 185);
+    color: #ffffff;
+    border-radius: 5% / 40%;
+    padding-left: 2%;
+    border: 1px solid #003060;
+}
+
+input:focus, select:focus {
+    border-color: #0969da;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
+}

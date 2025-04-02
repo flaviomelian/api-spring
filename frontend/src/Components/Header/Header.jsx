@@ -1,23 +1,26 @@
-import React from 'react'
-import casita from './../../assets/casita.png'
-import team from './../../assets/team.jpg'
-import code from './../../assets/code.png'
-import './Header.css'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import casita from "./../../assets/casita.png";
+import team from "./../../assets/team.jpg";
+import code from "./../../assets/code.png";
+import "./Header.css";
 
 const Header = () => {
-    return (
-        <div className='header'>
-            <div>
-                <img className='house' src={casita}/>
-            </div>
-            <div>
-                <img className='team' src={team}/>
-            </div>
-            <div>       
-                <img className='code' src={code}/>
-            </div>
-        </div>
-    )
-}
+  const navigate = useNavigate();
 
-export default Header
+  return (
+    <div className="header">
+      <div onClick={() => navigate("/")}>
+        <img className="house" src={casita} alt="Inicio" />
+      </div>
+      <div onClick={() => navigate("/dashboard")}>
+        <img className="team" src={team} alt="Equipo" />
+      </div>
+      <div onClick={() => navigate("/code")}>
+        <img className="code" src={code} alt="Código" />
+      </div>
+    </div>
+  );
+};
+
+export default Header;
