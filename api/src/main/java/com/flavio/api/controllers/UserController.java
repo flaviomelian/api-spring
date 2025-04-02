@@ -1,21 +1,13 @@
 package com.flavio.api.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import com.flavio.api.models.User;
 import com.flavio.api.services.UserService;
-
+import com.flavio.api.repositories.UserRepository;
 import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-
-
+import java.util.Optional;
 
 
 @RestController
@@ -23,23 +15,42 @@ import org.springframework.web.bind.annotation.PathVariable;
 public class UserController {
     
     private UserService userService;
+    private UserRepository userRepository;
 
     public UserController(UserService userService){
         this.userService = userService;
     }
     
     @GetMapping("/")
-    public List<User> getAllUsers(@RequestParam String param) {
+    public List<User> getAllUsers() {
         return this.userService.getAllUsers();
     }
 
+    @GetMapping("/{id}")
+    public Optional<User> getUserById(@PathVariable long id) {
+        return this.userService.getUserById(id);
+    }
+
     @PostMapping("/")
-    public User postMethodName(@RequestBody User user) {
+    public User createUser(@RequestBody User user) {
         return this.userService.saveUser(user);
     }
     
-    @PutMapping("path/{id}")
-    public void putMethodName(@PathVariable String id, @RequestBody String entity) {
+    @PutMapping("/{id}")
+    public void updateUser(@PathVariable String id, @RequestBody String entity) {
        this.userService.getUserById(null);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable Long id) {
+        Optional<User> user = userRepository.findById(id);
+
+        if (user.isPresent()) {
+            userService.deleteUser(user.get().getId());
+            return ResponseEntity.ok("Usuario eliminado correctamente.");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
+        }
+    }
+
 }
