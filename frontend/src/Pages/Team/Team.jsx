@@ -56,6 +56,7 @@ const Team = () => {
                         <td><b>Nombre</b></td>
                         <td><b>Apellidos</b></td>
                         <td><b>Rol</b></td>
+                        <td><b>Email</b></td>
                         <td><b>Salario</b></td>
                         <td className='operations'><b>Operaciones</b></td>
                     </tr>
@@ -68,6 +69,7 @@ const Team = () => {
                         <td>{user.name}</td>
                         <td>{user.surnames}</td>
                         <td>{user.role}</td>
+                        <td>{user.email}</td>
                         <td>{user.salary} €</td>
                         <td>
                             <button className="btn warning">Editar</button>
