@@ -1,4 +1,6 @@
 .header{
+    position: sticky;
+    top: 0vh;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -10,7 +12,8 @@
     margin-bottom: 2%;
     width: 100%;
     padding: auto;
-    background-image: linear-gradient(to bottom, #00a2ff, #00000000);
+    background: linear-gradient(#077ccf 95%, #00000000);
+    z-index: 10000000000;
 }
 
 .header div {

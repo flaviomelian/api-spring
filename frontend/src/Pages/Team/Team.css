@@ -15,9 +15,9 @@
 table{
     width: 70%;
     margin: 0 auto;
-    padding: 3% 2% 3% 3%;
+    padding: 3%;
     background-color: #005499;
-    border-radius: 5% / 30%;
+    border-radius: 5% / 15%;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     font-size: 20px;
 }
@@ -33,7 +33,7 @@ tbody div{
 
 .operations{
     position: relative;
-    left: 8%;
+    left: 15%;
 }
 
 .warning{
@@ -46,11 +46,16 @@ tbody div{
     color: #e80000;
 }
 
+.success{
+    background-color: #2e9900;
+    color: #1fe800;
+}
+
 .clean{
     margin-top: 5%;
     background-color: rgb(9, 85, 185);
     margin: 2% auto;
-    width: 30%;
+    width: 65%;
 }
 
 .not-found{

@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { createUser } from "../../services/services";
 import { useNavigate } from "react-router-dom";
 import { useUserContext } from '../../Context/Context';
+import dev from '../../assets/dev.png'
 
 const CreateDev = () => {
 
@@ -49,7 +50,10 @@ const CreateDev = () => {
   return (
     <div className='team-dashboard'>
         <Toaster />
-        <h1>Alta de desarrollador</h1>
+        <div className='dev-img-header'>
+            <img className='dev' src={dev}/>
+            <h1 id='title'>Alta de desarrollador</h1>
+        </div>
         <form id="userForm" onSubmit={(event) => {
             event.preventDefault();
             handleFormCreateUser();
@@ -86,7 +90,7 @@ const CreateDev = () => {
             </div>
             <button type="submit" className='btn-primary clean'onClick={(e) => {
             e.preventDefault()
-            handleFormCreateUser()}}>Crear Usuario</button>
+            handleFormCreateUser()}}>Crear Desarrollador</button>
         </form>
     </div>
   )

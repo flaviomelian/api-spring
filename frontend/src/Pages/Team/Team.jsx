@@ -47,6 +47,7 @@ const Team = () => {
                 </div>
             )}
             <h1>Equipo</h1>
+            <button className='btn primary clean' onClick={() => navigate("../create-dev")}>Crear desarrollador</button>
             {users.length > 0 ? (
             <table>
                 <thead>
@@ -78,6 +79,9 @@ const Team = () => {
                             <td>
                                 <button className="btn danger" onClick={handleDeleteUser}>Eliminar</button>
                             </td>
+                            <td>
+                                <button className="btn success">Asignar Tarea</button>
+                            </td>
                         </div>
                     </tr>
                 ))}    
@@ -88,7 +92,6 @@ const Team = () => {
                 <img className='not-found' src={notfound}/>
             </>
             )}
-            <button className='btn primary clean' onClick={() => navigate("../create-dev")}>Crear desarrollador</button>
         </div>
     )
 }
