@@ -16,10 +16,10 @@ public class Project {
     private String enterprise;
     private Date deadline, initdate;
     @OneToMany
-    @JoinColumn(name = "task_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     private ArrayList<Task> tasks;
     @OneToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     private ArrayList<User> users;
     
     public Project(Long id, String name, String enterprise, Date deadline, Date initdate, ArrayList<Task> tasks,

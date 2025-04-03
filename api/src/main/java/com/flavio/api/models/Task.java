@@ -12,7 +12,7 @@ public class Task {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
     private User user;
     private int time;
     private Priority priority;

@@ -1,9 +1,8 @@
 import React, { createContext, useState, useContext } from 'react';
 
-// Crear un contexto para el usuario
 const UserContext = createContext();
+const ProjectContext = createContext();
 
-// Crear un proveedor para manejar los datos del usuario
 export const UserProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
 
@@ -14,7 +13,20 @@ export const UserProvider = ({ children }) => {
     );
 };
 
-// Hook para acceder al contexto
 export const useUserContext = () => {
     return useContext(UserContext);
+};
+
+export const ProjectProvider = ({ children }) => {
+    const [ProjectData, setProjectData] = useState(null);
+
+    return (
+        <ProjectContext.Provider value={{ ProjectData, setProjectData }}>
+            {children}
+        </ProjectContext.Provider>
+    );
+};
+
+export const useProjectContext = () => {
+    return useContext(ProjectContext);
 };

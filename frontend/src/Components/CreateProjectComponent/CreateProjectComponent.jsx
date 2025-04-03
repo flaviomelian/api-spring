@@ -2,61 +2,51 @@ import React, { useState, useEffect } from 'react'
 import './CreateProjectComponent.css'
 import toast, { Toaster } from 'react-hot-toast'
 import { useNavigate, useLocation } from "react-router-dom";
-import { useUserContext } from '../../Context/Context';
-import dev from '../../assets/dev.png'
+import { useProjectContext } from '../../Context/Context';
+import projectimg from '../../assets/project.png'
 
-const CreateDev = () => {
+const CreateProject = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const { setProjectData } = useUserContext();
+    const { setProjectData } = useProjectContext();
     const project = location.state?.project;
     const [name, setName] = useState('');
-    const [surnames, setSurnames] = useState('');
-    const [salary, setSalary] = useState(0);
-    const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
+    const [deadline, setDeadline] = useState('');
+    const [enterprise, setEnterprise] = useState('');
+    const [initDate, setInitDate] = useState('');
     const [isEditMode, setIsEditMode] = useState(false);  
 
     useEffect(() => {
         if(project && !isEditMode){
             setIsEditMode(true);  
-            setUsername(user.username);
-            setName(user.name);
-            setSurnames(user.surnames);
-            setSalary(user.salary);
-            setEmail(user.email);
-            setRole(user.role);
+            setName(project.name);
+            setDeadline(project.deadline);
+            setEnterprise(project.enterprise);
+            setInitDate(project.initDate);
         }  
-    }, [user, isEditMode]);
+    }, [project, isEditMode]);
 
-    const handleFormCreateUser = () =>{
+    const handleFormCreateProject = () =>{
         if (
-            username.length === 0 ||
             name.length === 0 ||
-            surnames.length === 0 ||
-            salary === 0 ||
-            email.length === 0 ||
-            role.length === 0 ||
-            role === 'SELECT'
+            enterprise === 0
         ) {
             return toast.error('Introduzca todos los campos del formulario correctamente')
         }
     
         try {
           const data = {
-            id: location.state?.user.id,
-            username: username,
+            id: location.state?.project.id,
             name: name,
-            surnames: surnames,
-            salary: salary,
-            email: email,
-            role: role,
+            deadline: deadline,
+            enterprise: enterprise,
+            initDate: initDate,
           }
-          setUserData(data);
+          setProjectData(data);
 
-          if (isEditMode) navigate('/create-dev-ok', { state: true })
-          else navigate('/create-dev-ok')
+          if (isEditMode) navigate('/create-projectCreateProject-ok', { state: true })
+          else navigate('/create-projectCreateProject-ok')
         } catch (error) {
             toast.error('Introduzca todos los campos del formulario correctamente')
         }
@@ -66,76 +56,50 @@ const CreateDev = () => {
     
     <div className='team-dashboard'>
         <Toaster />
-        <div className='dev-img-header'>
-            <img className='dev' src={dev}/>
-            <h1 id='title'>{isEditMode ? 'Edición de desarrollador' : 'Alta de desarrollador'}</h1>
+        <div className='project-img-header'>
+            <img className='project' src={projectimg}/>
+            <h1 id='title'>{isEditMode ? 'Edición de proyecto' : 'Alta de proyecto'}</h1>
         </div>
-        <form id="userForm">
+        <form id="projectForm">
             <div className="input-group">
-                <label htmlFor="username">Usuario:</label>
+                <label htmlFor="Projectname">Proyecto:</label>
                 {isEditMode ?
-                    (<input type="text" id="username" name="username" maxLength="15" value={username} onChange={(event) => setUsername(event.target.value)} required/>) : 
-                    (<input type="text" id="username" name="username" maxLength="15" onChange={(event) => setUsername(event.target.value)} required/>)
+                    (<input type="text" id="Projectname" name="Projectname" maxLength="25" value={name} onChange={(event) => setName(event.target.value)} required/>) : 
+                    (<input type="text" id="Projectname" name="Projectname" maxLength="25" onChange={(event) => setName(event.target.value)} required/>)
                 }
             </div>
             <div className="input-group">
-                <label htmlFor="name">Nombre:</label>
+                <label htmlFor="initdate">Fecha de inicio:</label>
                 {isEditMode ?
-                    (<input type="text" id="name" name="name" maxLength="15" value={name} onChange={(event) => setName(event.target.value)} required/>) :
-                    (<input type="text" id="name" name="name" maxLength="15" onChange={(event) => setName(event.target.value)} required/>)
+                    (<input type="date" id="initdate" name="initdate" value={initDate} onChange={(event) => setInitDate(event.target.value)} required/>) :
+                    (<input type="date" id="initdate" name="initdate" onChange={(event) => setInitDate(event.target.value)} required/>)
                 }
             </div>
             <div className="input-group">
-                <label htmlFor="surnames">Apellidos:</label>
+                <label htmlFor="enterprise">Empresa:</label>
                 {isEditMode ?
-                    (<input type="text" id="surnames" name="surnames" maxLength="20" value={surnames} onChange={(event) => setSurnames(event.target.value)} required/>) :
-                    (<input type="text" id="surnames" name="surnames" maxLength="20" onChange={(event) => setSurnames(event.target.value)} required/>)
+                    (<input type="text" id="enterprise" name="enterprise" maxLength="20" value={enterprise} onChange={(event) => setEnterprise(event.target.value)} required/>) :
+                    (<input type="text" id="enterprise" name="enterprise" maxLength="20" onChange={(event) => setEnterprise(event.target.value)} required/>)
                 }
             </div>
             <div className="input-group">
-                <label htmlFor="salary">Salario (€):</label>
+                <label htmlFor="deadline">Deadline:</label>
                 {isEditMode ?
-                    (<input type="number" id="salary" name="salary" value={salary} step="10" min="1000" onChange={(event) => setSalary(event.target.value)} required/>) :
-                    (<input type="number" id="salary" name="salary" step="10" min="1000" onChange={(event) => setSalary(event.target.value)} required/>)
-                }
-            </div>
-            <div className="input-group">
-                <label htmlFor="email">Correo electrónico:</label>
-                {isEditMode ?
-                    (<input type="email" id="email" name="email" maxLength="30" value={email} onChange={(event) => setEmail(event.target.value)} required/>) :
-                    (<input type="email" id="email" name="email" maxLength="30" onChange={(event) => setEmail(event.target.value)} required/>)
-                }
-            </div>
-            <div className="input-group">
-                <label htmlFor="role">Rol:</label>
-                {isEditMode ?
-                    (<select id="role" name="role" value={role} onChange={(event) => setRole(event.target.value)} required>
-                        <option value=")SELECT">Seleccionar</option>
-                        <option value="FRONTEND">Frontend</option>
-                        <option value="BACKEND">Backend</option>
-                        <option value="FULLSTACK">Fullstack</option>
-                        <option value="IT_SUPPORT">IT Support</option>
-                    </select>) :
-                    (<select id="role" name="role" onChange={(event) => setRole(event.target.value)} required>
-                        <option value=")SELECT">Seleccionar</option>
-                        <option value="FRONTEND">Frontend</option>
-                        <option value="BACKEND">Backend</option>
-                        <option value="FULLSTACK">Fullstack</option>
-                        <option value="IT_SUPPORT">IT Support</option>
-                    </select>) 
+                    (<input type="date" id="deadline" name="deadline" maxLength="15" value={deadline} onChange={(event) => setName(event.target.value)} required/>) :
+                    (<input type="date" id="deadline" name="deadline" maxLength="15" onChange={(event) => setName(event.target.value)} required/>)
                 }
             </div>
             {isEditMode ?
                 (<button className='warning'onClick={(e) => {
                     e.preventDefault()
-                    handleFormCreateUser()}}>Editar Desarrollador</button>):(
+                    handleFormCreateProject()}}>Editar Proyecto</button>):(
                 <button className='btn-primary clean'onClick={(e) => {
                     e.preventDefault()
-                    handleFormCreateUser()}}>Crear Desarrollador</button>)
+                    handleFormCreateProject()}}>Crear Proyecto</button>)
             }
         </form>
     </div>
   )
 }
 
-export default CreateDev
+export default CreateProject
