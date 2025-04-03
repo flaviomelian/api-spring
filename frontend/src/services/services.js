@@ -6,12 +6,15 @@ export const getAllUsers = async () => {
 }
 
 export const createUser = async (dataUser) => {
-    const  {data} = await api.post('users/', dataUser)
-    return data
+    await api.post('users/', dataUser)
 }
 
 export const deleteUser = async (id) => {
-    console.log(id)
-    const  {data} = await api.delete('users/', id)
+    const {data} = await api.delete(`users/${id}`)
+    return data
+}
+
+export const updateUser = async (id, dataUser) => {
+    const {data} = await api.put(`users/${id}`, dataUser)
     return data
 }

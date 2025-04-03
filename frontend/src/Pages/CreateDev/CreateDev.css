@@ -65,3 +65,8 @@ input:focus, select:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(9, 105, 218, 0.3);
 }
+
+.warning{
+    background-color: #b5bc02;
+    color: #f6ff00;
+}

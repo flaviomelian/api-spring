@@ -15,16 +15,11 @@ const Team = () => {
     }, [])
 
     useEffect(() => {
-        // Si venimos de la página de creación, mostrar el alert
         if (location.state?.fromCreateDevOk) {
             setShowAlert(true)
-
-            // Desaparecer el alert después de 3 segundos
             const timer = setTimeout(() => {
                 setShowAlert(false)
             }, 3000)
-
-            // Limpiar el temporizador si el componente se desmonta
             return () => clearTimeout(timer)
         }
     }, [])
@@ -35,8 +30,9 @@ const Team = () => {
         setUsers(result)
     }
 
-    const handleDeleteUser = async () => {
-        await deleteUser()
+    const handleDeleteUser = async (id) => {
+        await deleteUser(id)
+        setUsers(users.filter(user => user.id !== id));
     }
 
     return (
@@ -72,12 +68,12 @@ const Team = () => {
                         <td>{user.role}</td>
                         <td>{user.email}</td>
                         <td>{user.salary} €</td>
-                        <div>
+                        <div className='tools'>
                             <td>
-                                <button className="btn warning">Editar</button>
+                                <button className="btn warning" onClick={() => navigate("../create-dev", { state: { user } })}>Editar</button>
                             </td>
                             <td>
-                                <button className="btn danger" onClick={handleDeleteUser}>Eliminar</button>
+                                <button className="btn danger" onClick={() => handleDeleteUser(user.id)}>Eliminar</button>
                             </td>
                             <td>
                                 <button className="btn success">Asignar Tarea</button>

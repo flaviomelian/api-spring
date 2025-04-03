@@ -32,22 +32,36 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public User createUser(@RequestBody User user) {
-        return this.userService.saveUser(user);
+    public void createUser(@RequestBody User user) {
+        this.userService.saveUser(user);
     }
     
     @PutMapping("/{id}")
-    public void updateUser(@PathVariable long id, @RequestBody String entity, User user) {
-        if (userService.getUserById(id).isPresent())
-            userService.updateUser(user);
+    public ResponseEntity<User> updateUser(@PathVariable long id, @RequestBody User updatedUser) {
+        Optional<User> userToUpdate = this.userService.getUserById(id);
+
+        if (userToUpdate.isPresent()) {
+            User existingUser = userToUpdate.get();
+            existingUser.setUsername(updatedUser.getUsername());
+            existingUser.setName(updatedUser.getName());
+            existingUser.setSurnames(updatedUser.getSurnames());
+            existingUser.setSalary(updatedUser.getSalary());
+            existingUser.setEmail(updatedUser.getEmail());
+            existingUser.setRole(updatedUser.getRole());
+            this.userService.updateUser(existingUser);
+            return ResponseEntity.ok(existingUser); // Retornar el usuario actualizado
+        } else {
+            return ResponseEntity.notFound().build(); // Si no se encuentra, devolver 404
+        }
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable Long id) {
-        Optional<User> user = userRepository.findById(id);
+        Optional<User> user = this.userService.getUserById(id);
 
         if (user.isPresent()) {
-            userService.deleteUser(((User)(user.get())).getId());
+            this.userService.deleteUser(((User)(user.get())).getId());
             return ResponseEntity.ok("Usuario eliminado correctamente.");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");

@@ -1,5 +1,4 @@
 .team-dashboard{
-    margin: auto;
     display: flex;
     flex-direction: column;
 }
@@ -13,11 +12,11 @@
 }
 
 table{
-    width: 70%;
     margin: 0 auto;
-    padding: 3%;
+    padding: 3% 7% 3% 3%;
     background-color: #005499;
-    border-radius: 5% / 15%;
+    border-radius: 3% / 10%;
+    border-spacing: 7px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     font-size: 20px;
 }

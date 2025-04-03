@@ -23,8 +23,8 @@ public class UserService {
         return repository.findById(id);
     }
 
-    public User saveUser(User user) {
-        return repository.save(user);
+    public void saveUser(User user) {
+        repository.save(user);
     }
 
     public void deleteUser(Long id) {
@@ -32,6 +32,16 @@ public class UserService {
     }
 
     public void updateUser(User user) {
-        repository.save(user);
+       var toUpdate = repository.findById(user.getId());
+       if (toUpdate.isPresent()){
+        User updatedUser = toUpdate.get();
+        updatedUser.setUsername(user.getUsername());
+        updatedUser.setName(user.getName());
+        updatedUser.setSurnames(user.getSurnames());
+        updatedUser.setSalary(user.getSalary());
+        updatedUser.setEmail(user.getEmail());
+        updatedUser.setRole(user.getRole());
+        repository.save(updatedUser);
+       }
     }
 }
