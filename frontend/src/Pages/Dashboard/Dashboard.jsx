@@ -8,6 +8,7 @@ const Dashboard = () => {
     return (
         <div className='dashboard'>
             <button className='btn primary clean' onClick={() => navigate("../team")}>Equipo de desarrollo</button>
+            <button className='btn primary clean' onClick={() => navigate("../projects")}>Proyectos</button>
             <button className='btn primary clean' onClick={() => navigate("../create-dev")}>Tareas</button>
         </div>
     )

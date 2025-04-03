@@ -1,0 +1,68 @@
+.project-dashboard{
+    display: flex;
+    flex-direction: column;
+}
+
+.project-dashboard h1{
+    margin: 1% auto;
+}
+
+.project-dashboard h2{
+    margin: 0 auto;
+}
+
+table{
+    margin: 0 auto;
+    padding: 3% 7% 3% 3%;
+    background-color: #005499;
+    border-radius: 3% / 10%;
+    border-spacing: 7px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+tbody{
+    margin-top: 5%;
+}
+
+tbody div{
+    position: relative;
+    left: 15%;
+}
+
+td, th{
+    padding: 10px;
+}
+
+.operations{
+    position: relative;
+    left: 13%;
+}
+
+.warning{
+    background-color: #b5bc02;
+    color: #f6ff00;
+}
+
+.danger{
+    background-color: #990000;
+    color: #e80000;
+}
+
+.success{
+    background-color: #2e9900;
+    color: #1fe800;
+}
+
+.clean{
+    margin-top: 5%;
+    background-color: rgb(9, 85, 185);
+    margin: 2% auto;
+    width: 79%;
+}
+
+.not-found{
+    width: 30%;
+    margin: auto;
+    border-radius: 5%;
+}

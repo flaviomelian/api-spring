@@ -3,7 +3,10 @@ import Root from '../layout/Root'
 import Dashboard from '../Pages/Dashboard/Dashboard'
 import CreateDev from '../Pages/CreateDev/CreateDev'
 import CreateDevOK from '../Pages/CreateDevOK/CreateDevOK'
+import CreateProject from '../Pages/CreateProject/CreateProject'
+import CreateProjectOK from '../Pages/CreateProjectOK/CreateProjectOK'
 import Team from '../Pages/Team/Team'
+import Project from '../Pages/Project/Project'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,18 @@ const router = createBrowserRouter([
       {
         path: '/create-dev-ok',
         element: <CreateDevOK />,
+      },
+      {
+        path: '/projects',
+        element: <Project />,
+      },
+      {
+        path: '/create-project',
+        element: <CreateProject />,
+      },
+      {
+        path: '/create-project-ok',
+        element: <CreateProjectOK />,
       },
     ],
   },
