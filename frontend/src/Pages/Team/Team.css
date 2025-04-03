@@ -30,9 +30,13 @@ tbody div{
     left: 15%;
 }
 
+td, th{
+    padding: 10px;
+}
+
 .operations{
     position: relative;
-    left: 15%;
+    left: 13%;
 }
 
 .warning{
@@ -54,7 +58,7 @@ tbody div{
     margin-top: 5%;
     background-color: rgb(9, 85, 185);
     margin: 2% auto;
-    width: 65%;
+    width: 79%;
 }
 
 .not-found{

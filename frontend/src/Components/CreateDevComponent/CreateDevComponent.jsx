@@ -75,22 +75,22 @@ const CreateDev = () => {
             <div className="input-group">
                 <label htmlFor="username">Usuario:</label>
                 {isEditMode ?
-                    (<input type="text" id="username" name="username" value={username} onChange={(event) => setUsername(event.target.value)} required/>) : 
-                    (<input type="text" id="username" name="username" onChange={(event) => setUsername(event.target.value)} required/>)
+                    (<input type="text" id="username" name="username" maxLength="15" value={username} onChange={(event) => setUsername(event.target.value)} required/>) : 
+                    (<input type="text" id="username" name="username" maxLength="15" onChange={(event) => setUsername(event.target.value)} required/>)
                 }
             </div>
             <div className="input-group">
                 <label htmlFor="name">Nombre:</label>
                 {isEditMode ?
-                    (<input type="text" id="name" name="name" value={name} onChange={(event) => setName(event.target.value)} required/>) :
-                    (<input type="text" id="name" name="name" onChange={(event) => setName(event.target.value)} required/>)
+                    (<input type="text" id="name" name="name" maxLength="15" value={name} onChange={(event) => setName(event.target.value)} required/>) :
+                    (<input type="text" id="name" name="name" maxLength="15" onChange={(event) => setName(event.target.value)} required/>)
                 }
             </div>
             <div className="input-group">
                 <label htmlFor="surnames">Apellidos:</label>
                 {isEditMode ?
-                    (<input type="text" id="surnames" name="surnames" value={surnames} onChange={(event) => setSurnames(event.target.value)} required/>) :
-                    (<input type="text" id="surnames" name="surnames" onChange={(event) => setSurnames(event.target.value)} required/>)
+                    (<input type="text" id="surnames" name="surnames" maxLength="20" value={surnames} onChange={(event) => setSurnames(event.target.value)} required/>) :
+                    (<input type="text" id="surnames" name="surnames" maxLength="20" onChange={(event) => setSurnames(event.target.value)} required/>)
                 }
             </div>
             <div className="input-group">
@@ -103,8 +103,8 @@ const CreateDev = () => {
             <div className="input-group">
                 <label htmlFor="email">Correo electrónico:</label>
                 {isEditMode ?
-                    (<input type="email" id="email" name="email" value={email} onChange={(event) => setEmail(event.target.value)} required/>) :
-                    (<input type="email" id="email" name="email" onChange={(event) => setEmail(event.target.value)} required/>)
+                    (<input type="email" id="email" name="email" maxLength="30" value={email} onChange={(event) => setEmail(event.target.value)} required/>) :
+                    (<input type="email" id="email" name="email" maxLength="30" onChange={(event) => setEmail(event.target.value)} required/>)
                 }
             </div>
             <div className="input-group">
