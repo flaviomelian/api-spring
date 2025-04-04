@@ -1,5 +1,7 @@
 package com.flavio.api.models;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -15,6 +17,8 @@ public class User {
     private double salary;
     private String email;
     private Role role;
+    @ManyToMany(mappedBy = "users")
+    private List<Task> tasks;
 
     public User() {}
 
@@ -81,6 +85,14 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }
 

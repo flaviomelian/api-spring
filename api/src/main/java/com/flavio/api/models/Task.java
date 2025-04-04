@@ -1,6 +1,7 @@
 package com.flavio.api.models;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "tasks")
@@ -9,24 +10,31 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long task_id;
+
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
-    private User user;
+    @ManyToMany
+    @JoinTable(
+        name = "task_users",
+        joinColumns = @JoinColumn(name = "task_id"),
+        inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
+    private List<User> users;
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
     private int time;
+
+    @Enumerated(EnumType.STRING)
     private Priority priority;
 
     public Task() {}
 
-    public Task(String content, User user, int time, Priority priority, Project project) {
+    public Task(String content, List<User> users, int time, Priority priority, Project project) {
         this.content = content;
-        this.user = user;
+        this.users = users;
         this.time = time;
         this.priority = priority;
         this.project = project;
@@ -48,12 +56,12 @@ public class Task {
         this.content = content;
     }
 
-    public User getUser() {
-        return user;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public int getTime() {
@@ -79,7 +87,6 @@ public class Task {
     public void setProject(Project project) {
         this.project = project;
     }
-
 }
 
 enum Priority {

@@ -9,7 +9,7 @@ const CreateProject = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const { setProjectData } = useProjectContext();
+    const setProjectData  = useProjectContext();
     const project = location.state?.project;
     const [name, setName] = useState('');
     const [deadline, setDeadline] = useState('');
