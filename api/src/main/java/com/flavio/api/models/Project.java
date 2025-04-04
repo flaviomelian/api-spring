@@ -15,11 +15,10 @@ public class Project {
     private String name;
     private String enterprise;
     private Date deadline, initdate;
-    @OneToMany
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private ArrayList<Task> tasks;
-    @OneToMany
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
+    @ManyToMany
+    @JoinTable(name = "project_users", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private ArrayList<User> users;
     
     public Project(Long id, String name, String enterprise, Date deadline, Date initdate, ArrayList<Task> tasks,

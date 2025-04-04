@@ -8,30 +8,36 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long task_id;
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id", nullable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
+
     private int time;
     private Priority priority;
 
     public Task() {}
 
-    public Task(String content, User user, int time, Priority priority) {
+    public Task(String content, User user, int time, Priority priority, Project project) {
         this.content = content;
         this.user = user;
         this.time = time;
         this.priority = priority;
+        this.project = project;
     }
 
     public Long getId() {
-        return id;
+        return task_id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(Long task_id) {
+        this.task_id = task_id;
     }
 
     public String getContent() {
@@ -65,6 +71,15 @@ public class Task {
     public void setPriority(Priority priority) {
         this.priority = priority;
     }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
 }
 
 enum Priority {
