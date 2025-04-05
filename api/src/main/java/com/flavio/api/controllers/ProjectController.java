@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:5174")
 @RestController
-@RequestMapping("/api/Projects")
+@RequestMapping("/api/projects")
 public class ProjectController {
 
     private final ProjectService ProjectService;

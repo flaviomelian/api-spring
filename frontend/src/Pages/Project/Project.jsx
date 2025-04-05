@@ -35,11 +35,16 @@ const Project = () => {
         setProjects(projects.filter(project => project.id !== id));
     }
 
+    const unformatDateFromMySQL = (date) => {
+        const [year, month, day] = date.split('-'); // Dividimos la fecha en día, mes y año
+        return `${day}-${month}-${year}`; // Devolvemos en formato aaaa-mm-dd
+    };
+
     return (
         <div className='project-dashboard'>
             {showAlert && (
                 <div className="alert alert-success" role="alert">
-                    Usuario creado correctamente!
+                    Proyecto creado correctamente!
                 </div>
             )}
             <h1>Proyectos</h1> 
@@ -49,25 +54,21 @@ const Project = () => {
                     <thead>
                         <tr>
                             <td><b>ID</b></td>
-                            <td><b>Usuario</b></td>
-                            <td><b>Nombre</b></td>
-                            <td><b>Apellidos</b></td>
-                            <td><b>Rol</b></td>
-                            <td><b>Email</b></td>
-                            <td><b>Salario</b></td>
-                            <td className='operations'><b>Operaciones</b></td>
+                            <td><b>Proyecto</b></td>
+                            <td><b>Fecha de inicio</b></td>
+                            <td><b>Empresa</b></td>
+                            <td><b>Deadline</b></td>
+                            <td className='operations-project'><b>Operaciones</b></td>
                         </tr>
                     </thead>
                     <tbody>
                     {projects.map((project, index) => (
                         <tr key={index}>
                             <td>{project.id}</td>
-                            <td>{project.projectname}</td>
                             <td>{project.name}</td>
-                            <td>{project.surnames}</td>
-                            <td>{project.role}</td>
-                            <td>{project.email}</td>
-                            <td>{project.salary} €</td>
+                            <td>{unformatDateFromMySQL(project.initdate)}</td>
+                            <td>{project.enterprise}</td>
+                            <td>{unformatDateFromMySQL(project.deadline)}</td>
                             <div className='tools'>
                                 <td>
                                     <button className="btn warning" onClick={() => navigate("../create-project", { state: { project } })}>Editar</button>
@@ -76,7 +77,10 @@ const Project = () => {
                                     <button className="btn danger" onClick={() => handleDeleteProject(project.id)}>Eliminar</button>
                                 </td>
                                 <td>
-                                    <button className="btn success">Asignar Tarea</button>
+                                    <button className="btn success">Crear Tarea</button>
+                                </td>
+                                <td>
+                                    <button className="btn">Ver Tareas</button>
                                 </td>
                             </div>
                         </tr>

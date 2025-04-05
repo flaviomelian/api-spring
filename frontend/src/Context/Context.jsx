@@ -18,10 +18,10 @@ export const useUserContext = () => {
 };
 
 export const ProjectProvider = ({ children }) => {
-    const [ProjectData, setProjectData] = useState(null);
+    const [projectData, setProjectData] = useState(null);
 
     return (
-        <ProjectContext.Provider value={{ ProjectData, setProjectData }}>
+        <ProjectContext.Provider value={{ projectData, setProjectData }}>
             {children}
         </ProjectContext.Provider>
     );

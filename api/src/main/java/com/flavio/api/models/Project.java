@@ -15,21 +15,15 @@ public class Project {
     private String name;
     private String enterprise;
     private Date deadline, initdate;
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ArrayList<Task> tasks;
-    @ManyToMany
-    @JoinTable(name = "project_users", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private ArrayList<User> users;
+
+    public Project() {}
     
-    public Project(Long id, String name, String enterprise, Date deadline, Date initdate, ArrayList<Task> tasks,
-            ArrayList<User> users) {
+    public Project(Long id, String name, String enterprise, Date deadline, Date initdate) {
         this.id = id;
         this.name = name;
         this.enterprise = enterprise;
         this.deadline = deadline;
         this.initdate = initdate;
-        this.tasks = tasks;
-        this.users = users;
     }
 
     public Long getId() {
@@ -70,22 +64,6 @@ public class Project {
 
     public void setInitdate(Date initdate) {
         this.initdate = initdate;
-    }
-
-    public ArrayList<Task> getTasks() {
-        return tasks;
-    }
-
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    public ArrayList<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(ArrayList<User> users) {
-        this.users = users;
     }
     
 }

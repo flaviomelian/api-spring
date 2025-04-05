@@ -15,7 +15,6 @@ import java.util.Optional;
 public class UserController {
     
     private UserService userService;
-    private UserRepository userRepository;
 
     public UserController(UserService userService){
         this.userService = userService;

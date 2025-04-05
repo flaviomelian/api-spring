@@ -9,7 +9,7 @@ const CreateProject = () => {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const setProjectData  = useProjectContext();
+    const { setProjectData }  = useProjectContext();
     const project = location.state?.project;
     const [name, setName] = useState('');
     const [deadline, setDeadline] = useState('');
@@ -17,20 +17,32 @@ const CreateProject = () => {
     const [initDate, setInitDate] = useState('');
     const [isEditMode, setIsEditMode] = useState(false);  
 
+    const formatDate = (date) => {
+        const dateObj = new Date(date);
+        const day = ("0" + dateObj.getDate()).slice(-2); // Asegura que siempre tenga 2 dígitos
+        const month = ("0" + (dateObj.getMonth() + 1)).slice(-2); // El mes es 0-indexado
+        const year = dateObj.getFullYear();
+        return `${day}-${month}-${year}`;
+    };
+
     useEffect(() => {
         if(project && !isEditMode){
             setIsEditMode(true);  
             setName(project.name);
-            setDeadline(project.deadline);
+            setDeadline(formatDate(project.deadline));
             setEnterprise(project.enterprise);
-            setInitDate(project.initDate);
+            setInitDate(formatDate(project.initDate));
         }  
     }, [project, isEditMode]);
 
     const handleFormCreateProject = () =>{
+        console.log(name, deadline, enterprise, initDate);
+        
         if (
             name.length === 0 ||
-            enterprise === 0
+            deadline.length === 0 ||
+            initDate.length === 0 ||
+            enterprise.length === 0
         ) {
             return toast.error('Introduzca todos los campos del formulario correctamente')
         }
@@ -45,8 +57,8 @@ const CreateProject = () => {
           }
           setProjectData(data);
 
-          if (isEditMode) navigate('/create-projectCreateProject-ok', { state: true })
-          else navigate('/create-projectCreateProject-ok')
+          if (isEditMode) navigate('/create-project-ok', { state: true })
+          else navigate('/create-project-ok')
         } catch (error) {
             toast.error('Introduzca todos los campos del formulario correctamente')
         }
@@ -71,8 +83,8 @@ const CreateProject = () => {
             <div className="input-group">
                 <label htmlFor="initdate">Fecha de inicio:</label>
                 {isEditMode ?
-                    (<input type="date" id="initdate" name="initdate" value={initDate} onChange={(event) => setInitDate(event.target.value)} required/>) :
-                    (<input type="date" id="initdate" name="initdate" onChange={(event) => setInitDate(event.target.value)} required/>)
+                    (<input type="date" id="initdate" name="initdate" value={initDate} onChange={(event) => setInitDate(formatDate(event.target.value))} required/>) :
+                    (<input type="date" id="initdate" name="initdate" onChange={(event) => setInitDate(formatDate(event.target.value))} required/>)
                 }
             </div>
             <div className="input-group">
@@ -85,8 +97,8 @@ const CreateProject = () => {
             <div className="input-group">
                 <label htmlFor="deadline">Deadline:</label>
                 {isEditMode ?
-                    (<input type="date" id="deadline" name="deadline" maxLength="15" value={deadline} onChange={(event) => setName(event.target.value)} required/>) :
-                    (<input type="date" id="deadline" name="deadline" maxLength="15" onChange={(event) => setName(event.target.value)} required/>)
+                    (<input type="date" id="deadline" name="deadline" maxLength="15" value={deadline} onChange={(event) => setDeadline(formatDate(event.target.value))} required/>) :
+                    (<input type="date" id="deadline" name="deadline" maxLength="15" onChange={(event) => setDeadline(formatDate(event.target.value))} required/>)
                 }
             </div>
             {isEditMode ?

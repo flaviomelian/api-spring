@@ -1,12 +1,15 @@
-import { UserProvider } from './Context/Context';
+import { ProjectProvider, UserProvider } from './Context/Context';
+import Project from './Pages/Project/Project';
 import router from './Routes/index'
 import { RouterProvider } from 'react-router-dom'
 
 function App() {
   return (
-    <UserProvider>
-      <RouterProvider router={router}/>
-    </UserProvider>
+    <ProjectProvider>
+      <UserProvider>
+        <RouterProvider router={router}/>
+      </UserProvider>
+    </ProjectProvider>
   );
 }
 

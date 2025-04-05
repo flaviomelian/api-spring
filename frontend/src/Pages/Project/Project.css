@@ -34,9 +34,9 @@ td, th{
     padding: 10px;
 }
 
-.operations{
+.operations-project{
     position: relative;
-    left: 13%;
+    left: 25%;
 }
 
 .warning{
@@ -59,6 +59,10 @@ td, th{
     background-color: rgb(9, 85, 185);
     margin: 2% auto;
     width: 79%;
+}
+
+.btn{
+    color: #e2e1e1;
 }
 
 .not-found{
