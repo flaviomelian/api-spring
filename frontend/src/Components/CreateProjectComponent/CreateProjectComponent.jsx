@@ -36,7 +36,6 @@ const CreateProject = () => {
     }, [project, isEditMode]);
 
     const handleFormCreateProject = () =>{
-        console.log(name, deadline, enterprise, initDate);
         
         if (
             name.length === 0 ||

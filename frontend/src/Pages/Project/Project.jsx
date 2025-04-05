@@ -48,7 +48,7 @@ const Project = () => {
                 </div>
             )}
             <h1>Proyectos</h1> 
-                <button className='btn primary clean' onClick={() => navigate("../create-project")}>Crear proyecto</button>
+                <button className='btn primary clean-project' onClick={() => navigate("../create-project")}>Crear proyecto</button>
                 {projects.length > 0 ? (
                 <table>
                     <thead>
@@ -77,7 +77,7 @@ const Project = () => {
                                     <button className="btn danger" onClick={() => handleDeleteProject(project.id)}>Eliminar</button>
                                 </td>
                                 <td>
-                                    <button className="btn success">Crear Tarea</button>
+                                    <button className="btn success" onClick={() => navigate("../create-task", { state: { project } })}>Crear Tarea</button>
                                 </td>
                                 <td>
                                     <button className="btn">Ver Tareas</button>

@@ -2,6 +2,7 @@ import React, { createContext, useState, useContext } from 'react';
 
 const UserContext = createContext();
 const ProjectContext = createContext();
+const TaskContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
@@ -29,4 +30,18 @@ export const ProjectProvider = ({ children }) => {
 
 export const useProjectContext = () => {
     return useContext(ProjectContext);
+};
+
+export const TaskProvider = ({ children }) => {
+    const [taskData, setTaskData] = useState(null);
+
+    return (
+        <TaskContext.Provider value={{ taskData, setTaskData }}>
+            {children}
+        </TaskContext.Provider>
+    );
+};
+
+export const useTaskContext = () => {
+    return useContext(TaskContext);
 };

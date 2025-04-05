@@ -37,3 +37,17 @@ export const updateProject = async (id, dataProject) => {
     const {data} = await api.put(`projects/${id}`, dataProject)
     return data
 }
+
+export const createTask = async (dataTask) => {
+    await api.post('tasks/', dataTask)
+}
+
+export const deleteTask = async (id) => {
+    const {data} = await api.delete(`tasks/${id}`)
+    return data
+}
+
+export const updateTask = async (id, dataTask) => {
+    const {data} = await api.put(`tasks/${id}`, dataTask)
+    return data
+}

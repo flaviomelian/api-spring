@@ -7,6 +7,8 @@ import CreateProject from '../Pages/CreateProject/CreateProject'
 import CreateProjectOK from '../Pages/CreateProjectOK/CreateProjectOK'
 import Team from '../Pages/Team/Team'
 import Project from '../Pages/Project/Project'
+import CreateTask from '../Pages/CreateTask/CreateTask'
+import CreateTaskOK from '../Pages/CreateTaskOK/CreateTaskOK'
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: '/create-project-ok',
         element: <CreateProjectOK />,
+      },
+      {
+        path: '/create-task',
+        element: <CreateTask />,
+      },
+      {
+        path: '/create-task-ok',
+        element: <CreateTaskOK />,
       },
     ],
   },
