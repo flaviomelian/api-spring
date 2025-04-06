@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import { useNavigate, useLocation } from "react-router-dom";
 import { useTaskContext } from '../../Context/Context';
 import taskimg from '../../assets/task.png'
-import { getAllUsers } from '../../services/services'
+import { getAllTasksByProject, getAllUsers } from '../../services/services'
 
 const CreateTask = () => {
 
@@ -12,6 +12,7 @@ const CreateTask = () => {
     const location = useLocation();
     const { setTaskData }  = useTaskContext();
     const task = location.state?.task;
+    const project = location.state?.project;
     const [content, setContent] = useState('');
     const [priority, setPriority] = useState('');
     const [time, setTime] = useState('');
@@ -21,11 +22,21 @@ const CreateTask = () => {
       
 
     useEffect(() => {
-        handleGetUserInformation()
-    }, [])
+        handleGetTaskInformation()
+    }, [project])
 
-    const handleGetUserInformation = async () => {
+    useEffect(() => {
+      handleGetDevelopersInformation()
+    }, [developers])
+    
+    const handleGetDevelopersInformation = async () => {
         const result = await getAllUsers()
+        console.log(result)
+        setDevelopers(result)
+    }
+
+    const handleGetTaskInformation = async () => {
+        const result = await getAllTasksByProject(project.id)
         console.log(result)
         setDevelopers(result)
     }
@@ -50,19 +61,17 @@ const CreateTask = () => {
         }
     
         try {
-          const data = {
-            id: location.state?.task.id,
-            content: content,
-            priority: priority,
-            time: time,
-            projectId: location.state?.task.projectId,
-          }
-          setTaskData(data);
-
-          if (isEditMode) navigate('/create-task-ok', { state: true })
-          else navigate('/create-task-ok')
+            const data = {
+                id: task ? task.id : null, // Usamos el ID de la tarea si estamos editando
+                content,
+                priority,
+                time,
+                project,
+            };
+            setTaskData(data);
+            isEditMode ? navigate('/create-task-ok', { state: true }) : navigate('/create-task-ok', { state: false });
         } catch (error) {
-            toast.error('Introduzca todos los campos del formulario correctamente')
+            toast.error('Error al crear o editar la tarea');
         }
       }
 

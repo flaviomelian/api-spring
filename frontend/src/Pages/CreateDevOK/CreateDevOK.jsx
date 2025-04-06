@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useUserContext } from '../../Context/Context'; // Importamos el contexto
 import { createUser, updateUser } from '../../services/services';
+import './CreateDevOK.css';
 
 const CreateDevOK = () => {
 
@@ -29,7 +30,7 @@ const CreateDevOK = () => {
   };
 
   return (
-    <div>
+    <div className='create-dev-ok'>
       {isEditMode ? (<h1>Confirmar edición de usuario</h1>) : (<h1>Confirmar creación de usuario</h1>)}
       {userData && (
         <div>
@@ -41,8 +42,10 @@ const CreateDevOK = () => {
           <p><b>Rol:</b> {userData.role}</p>
         </div>
       )}
-      <button onClick={isEditMode ? handleUpdateUser : handleCreateUser}>Confirmar</button>
-      <button onClick={() => navigate('/create-dev')}>Cancelar</button>
+      <div className='confirmation-buttons'>
+        <button className="btn success" onClick={isEditMode ? handleUpdateUser : handleCreateUser}>Confirmar</button>
+        <button className="btn danger" onClick={() => navigate('/create-dev')}>Cancelar</button>
+      </div>
     </div>
   );
 };

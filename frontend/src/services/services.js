@@ -38,6 +38,16 @@ export const updateProject = async (id, dataProject) => {
     return data
 }
 
+export const getAllTasksByProject = async (projectId) => {
+    const { data } = await api.get(`tasks/project/${projectId}`)
+    return data
+}
+
+export const getTaskByIdByProject = async (projectId, id) => {
+    const { data } = await api.get(`tasks/project/${projectId}/${id}`)
+    return data
+}
+
 export const createTask = async (dataTask) => {
     await api.post('tasks/', dataTask)
 }

@@ -30,6 +30,18 @@ public class TaskController {
         return task.isPresent() ? ResponseEntity.ok(task) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(task);
     }
 
+    @GetMapping("project/{id}")
+    public ResponseEntity<Optional<Task>> getAllTasksByProject(@PathVariable Long id) {
+        Optional<Task> task = taskService.getTaskById(id);
+        return task.isPresent() ? ResponseEntity.ok(task) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(task);
+    }
+
+    @GetMapping("project/{id}/{id_task}")
+    public ResponseEntity<Optional<Task>> getTaskByIdByProject(@PathVariable Long id, @PathVariable Long idtask) {
+        Optional<Task> task = taskService.getTaskByIdProjectId(idtask, id);
+        return task.isPresent() ? ResponseEntity.ok(task) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(task);
+    }
+
     @PostMapping("/")
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
         Task savedTask = taskService.saveTask(task);

@@ -77,7 +77,7 @@ const Project = () => {
                                     <button className="btn danger" onClick={() => handleDeleteProject(project.id)}>Eliminar</button>
                                 </td>
                                 <td>
-                                    <button className="btn success" onClick={() => navigate("../create-task", { state: { project } })}>Crear Tarea</button>
+                                    <button className="btn success" onClick={() => navigate("../create-task", { state: { project: project } })}>Crear Tarea</button>
                                 </td>
                                 <td>
                                     <button className="btn">Ver Tareas</button>

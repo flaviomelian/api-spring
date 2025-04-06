@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useProjectContext } from '../../Context/Context'; // Importamos el contexto
 import { createProject, updateProject } from '../../services/services';
+import './CreateProjectOK.css';
 
 const CreateProjectOK = () => {
 
@@ -55,7 +56,7 @@ const CreateProjectOK = () => {
   
 
   return (
-    <div>
+    <div className='create-project-ok'>
       {isEditMode ? (<h1>Confirmar edición de proyecto</h1>) : (<h1>Confirmar creación de proyecto</h1>)}
       {projectData && (
         <div>
@@ -65,8 +66,10 @@ const CreateProjectOK = () => {
           <p><b>Fecha de finalización:</b> {projectData.deadline}</p>
         </div>
       )}
-      <button onClick={isEditMode ? handleUpdateproject : handleCreateproject}>Confirmar</button>
-      <button onClick={() => navigate('/create-Project')}>Cancelar</button>
+      <div className='confirmation-buttons'>
+        <button className="btn success" onClick={isEditMode ? handleUpdateproject : handleCreateproject}>Confirmar</button>
+        <button className="btn danger" onClick={() => navigate('/create-Project')}>Cancelar</button>
+      </div>
     </div>
   );
 };

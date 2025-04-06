@@ -13,7 +13,7 @@ const CreateTaskOK = () => {
   const handleCreateTask = async () => {
     try {
       await createTask(taskData);
-      navigate('/team'); 
+      navigate('/projects'); 
     } catch (error) {
       console.error(error);
     }
@@ -22,27 +22,26 @@ const CreateTaskOK = () => {
   const handleUpdateTask = async () => {
     try {
       await updateTask(taskData.id, taskData);
-      navigate('/team'); 
+      navigate('/projects'); 
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <div>
+    <div className='create-task-ok'>
+      {console.log(taskData)}
       {isEditMode ? (<h1>Confirmar edición de tarea</h1>) : (<h1>Confirmar creación de tarea</h1>)}
       {taskData && (
         <div>
-          <p><b>Usuario:</b> {taskData.taskname}</p>
-          <p><b>Nombre:</b> {taskData.name}</p>
-          <p><b>Apellidos:</b> {taskData.surnames}</p>
-          <p><b>Salario:</b> {taskData.salary} €</p>
-          <p><b>Email:</b> {taskData.email}</p>
-          <p><b>Rol:</b> {taskData.role}</p>
+          <p><b>Tarea:</b> {taskData.content}</p>
+          <p><b>Prioridad:</b> {taskData.priority}</p>
+          <p><b>Dias estimados:</b> {taskData.time}</p>
+          <p><b>Proyecto:</b> {taskData.project.name}</p>
         </div>
       )}
-      <button onClick={isEditMode ? handleUpdateTask : handleCreateTask}>Confirmar</button>
-      <button onClick={() => navigate('/create-dev')}>Cancelar</button>
+      <button className="btn sucess" onClick={isEditMode ? handleUpdateTask : handleCreateTask}>Confirmar</button>
+      <button className="btn danger" onClick={() => navigate('/projects')}>Cancelar</button>
     </div>
   );
 };

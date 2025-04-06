@@ -26,13 +26,11 @@ public class Task {
     private Project project;
 
     private int time;
-
-    @Enumerated(EnumType.STRING)
-    private Priority priority;
+    private String priority;
 
     public Task() {}
 
-    public Task(String content, List<User> users, int time, Priority priority, Project project) {
+    public Task(String content, List<User> users, int time, String priority, Project project) {
         this.content = content;
         this.users = users;
         this.time = time;
@@ -72,11 +70,11 @@ public class Task {
         this.time = time;
     }
 
-    public Priority getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(Priority priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 
@@ -87,8 +85,4 @@ public class Task {
     public void setProject(Project project) {
         this.project = project;
     }
-}
-
-enum Priority {
-    HIGH, MEDIUM, LOW
 }

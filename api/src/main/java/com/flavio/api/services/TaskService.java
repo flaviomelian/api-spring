@@ -22,6 +22,10 @@ public class TaskService {
         return repository.findById(id);
     }
 
+    public Optional<Task> getTaskByIdProjectId(Long idTask, Long idProject) {
+        return repository.findByIdProjectId(idTask, idProject);
+    }
+
     public Task saveTask(Task task) {
         return repository.save(task);
     }
