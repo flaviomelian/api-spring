@@ -9,6 +9,7 @@ import Team from '../Pages/Team/Team'
 import Project from '../Pages/Project/Project'
 import CreateTask from '../Pages/CreateTask/CreateTask'
 import CreateTaskOK from '../Pages/CreateTaskOK/CreateTaskOK'
+import Kanban from '../Pages/Kanban/Kanban'
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/create-task-ok',
         element: <CreateTaskOK />,
+      },
+      {
+        path: '/kanban',
+        element: <Kanban />,
       },
     ],
   },

@@ -1,0 +1,52 @@
+.header-kanban {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.kanban-section-header {
+    margin-bottom: 120%;
+}
+
+.to-do{
+    width: 24%;
+    background-color: #00d262;
+    border-radius: 10%;
+    padding: 1%;
+    margin: 0.3%;
+    justify-content: center;
+}
+
+.progress{
+    width: 24%;
+    background-color: #b3d200;
+    border-radius: 10%;
+    padding: 1%;
+    margin: 0.3%;
+    justify-content: center;
+}
+
+.review{
+    width: 24%;
+    background-color: #0070ac;
+    border-radius: 10%;
+    padding: 1%;
+    margin: 0.3%;
+    justify-content: center;
+}
+
+.done{
+    width: 24%;
+    background-color: #7700d2;
+    border-radius: 10%;
+    padding: 1%;
+    margin: 0.3%;
+    justify-content: center;
+}
+
+.kanban-section{
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+}

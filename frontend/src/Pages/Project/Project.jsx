@@ -80,7 +80,7 @@ const Project = () => {
                                     <button className="btn success" onClick={() => navigate("../create-task", { state: { project: project } })}>Crear Tarea</button>
                                 </td>
                                 <td>
-                                    <button className="btn">Ver Tareas</button>
+                                    <button className="btn" onClick={() => navigate("../kanban", { state: { project: project } })}>Ver Tareas</button>
                                 </td>
                             </div>
                         </tr>
