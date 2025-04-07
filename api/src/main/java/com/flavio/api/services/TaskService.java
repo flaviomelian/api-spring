@@ -18,6 +18,10 @@ public class TaskService {
         return repository.findAll();
     }
 
+    public List<Task> getTasksByProject(Long id) {
+        return repository.findByIdProjectId(id);
+    }
+
     public Optional<Task> getTaskById(Long id) {
         return repository.findById(id);
     }

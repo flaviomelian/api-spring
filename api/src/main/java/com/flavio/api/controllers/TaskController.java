@@ -31,9 +31,9 @@ public class TaskController {
     }
 
     @GetMapping("project/{id}")
-    public ResponseEntity<Optional<Task>> getAllTasksByProject(@PathVariable Long id) {
-        Optional<Task> task = taskService.getTaskById(id);
-        return task.isPresent() ? ResponseEntity.ok(task) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(task);
+    public ResponseEntity<List<Task>> getAllTasksByProject(@PathVariable Long id) {
+        List<Task> tasks = taskService.getTasksByProject(id);
+        return ResponseEntity.ok(tasks);
     }
 
     @GetMapping("project/{id}/{id_task}")
