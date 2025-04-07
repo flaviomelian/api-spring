@@ -10,12 +10,17 @@ import Project from '../Pages/Project/Project'
 import CreateTask from '../Pages/CreateTask/CreateTask'
 import CreateTaskOK from '../Pages/CreateTaskOK/CreateTaskOK'
 import Kanban from '../Pages/Kanban/Kanban'
+import Home from '../Pages/Home/Home'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     children: [
+      {
+        path: '',
+        element: <Home />,
+      },
       {
         path: '/dashboard',
         element: <Dashboard />,
