@@ -36,7 +36,8 @@ td, th{
 
 .operations-project{
     position: relative;
-    left: 25%;
+    left: 15%;
+    width: 100px;
 }
 
 .warning{
