@@ -37,7 +37,7 @@ const CreateTaskOK = () => {
           <p><b>Tarea:</b> {taskData.content}</p>
           <p><b>Prioridad:</b> {taskData.priority}</p>
           <p><b>Dias estimados:</b> {taskData.time}</p>
-          <p><b>Proyecto:</b> {taskData.project.name}</p>
+          <p><b>Proyecto:</b> {taskData.project}</p>
         </div>
       )}
       <button className="btn sucess" onClick={isEditMode ? handleUpdateTask : handleCreateTask}>Confirmar</button>
