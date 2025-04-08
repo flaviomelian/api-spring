@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import './Kanban.css';
-import { deleteTask, getAllTasksByProject } from '../../services/services';
+import { getAllTasksByProject } from '../../services/services';
 import TaskCard from '../../Components/TaskCard/TaskCard';  // Importamos el componente de TaskCard
 import { useDrop } from 'react-dnd';
 
@@ -19,7 +19,6 @@ const Kanban = () => {
         setProgressTasks((prev) => prev.filter((t) => t.id !== id));
         setDoneTasks((prev) => prev.filter((t) => t.id !== id));
         setTaskToDelete(null);
-        deleteTask(id)
     };
     
 

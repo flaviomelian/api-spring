@@ -68,7 +68,6 @@ const CreateTask = () => {
                 time,
                 project,
             };
-            console.log(data)
             setTaskData(data);
             isEditMode ? navigate('/create-task-ok', { state: true }) : navigate('/create-task-ok', { state: false });
         } catch (error) {
