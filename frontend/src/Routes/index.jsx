@@ -11,6 +11,7 @@ import CreateTask from '../Pages/CreateTask/CreateTask'
 import CreateTaskOK from '../Pages/CreateTaskOK/CreateTaskOK'
 import Kanban from '../Pages/Kanban/Kanban'
 import Home from '../Pages/Home/Home'
+import Code from '../Pages/Code/Code'
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
       {
         path: '/kanban',
         element: <Kanban />,
+      },
+      {
+        path: '/code',
+        element: <Code />,
       },
     ],
   },

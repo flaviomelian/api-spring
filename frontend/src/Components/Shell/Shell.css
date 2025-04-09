@@ -1,0 +1,66 @@
+.shell-container {
+    background-color: #1e1e1e;
+    color: #33ff33;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    height: 90vh;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #0f0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .shell-line {
+    line-height: 1.5;
+    padding-left: 5px;
+    white-space: pre-wrap;
+  }
+  
+  .shell-path {
+    color: #0f0;
+    font-weight: bold;
+  }
+  
+  .shell-dir {
+    color: #33ff33;
+  }
+  
+  .shell-input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: #33ff33;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    border-radius: 3px;
+    padding-left: 0;
+    width: 100%;
+  }
+  
+  .folder {
+    color: #c792ea; /* Morado */
+    font-weight: bold;
+  }
+  
+  .file {
+    color: #7ee787; /* Verde suave */
+  }
+  
+  /* Scrollbar styling */
+  .shell-container::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .shell-container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+  
+  .shell-container::-webkit-scrollbar-thumb {
+    background-color: #33ff33;
+    border-radius: 10px;
+  }
+  
