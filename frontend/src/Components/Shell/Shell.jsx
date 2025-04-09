@@ -62,6 +62,10 @@ const Shell = () => {
       case 'clear':
         setHistory([]);
         break;
+        
+      case 'cls':
+        setHistory([]);
+        break;
 
       case 'cat':
         if (args.length < 2) {
@@ -122,9 +126,11 @@ const Shell = () => {
             appendOutput(renderTree(fileSystem.current));
             break;
         }
+    
+      case 'help': appendOutput('Comandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual'); break;
 
       default:
-        appendOutput(`${cmd}: comando no encontrado`);
+        appendOutput(`${cmd}: comando no encontrado.\nComandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual\nclear/cls -> limpiar la terminal\ncat <archivo> -> leer el contenido del archivo\nrm <archivo|carpeta> -> borrar ese archivo o carpeta\nnano <archivo> -> editar o crear un archivo`);
     }
   };
 
