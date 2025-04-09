@@ -63,7 +63,7 @@ const Kanban = () => {
                 <div ref={dropToDo} className='to-do kanban-section'>
                     <div className='header-buttton'>
                         <h1 className='kanban-section-header'>Por hacer</h1>
-                        <button className='kanban-button' onClick={() => navigate("/create-task")}> + </button>
+                        <button className='kanban-button' onClick={() => navigate("/create-task", { state: { project } })}> + </button>
                     </div>
                     {tasks.map((task) => (
                         <TaskCard key={task.id} task={task} onRequestDelete={() => setTaskToDelete(task)} />

@@ -52,7 +52,7 @@ const TaskCard = ({ task, onRequestDelete }) => {
             </div>
             <div className='task-card-footer'>
                 <button className='kanban-button delete' onClick={onRequestDelete}>❌</button>
-                <Link to='/create-task' state={{ task: task }}><img className='pen' src={pen}/></Link>
+                <Link to='/create-task' state={{ task: task, project: task.project }}><img className='pen' src={pen}/></Link>
             </div>
         </div>
     );
