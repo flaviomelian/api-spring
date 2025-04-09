@@ -1,23 +1,43 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { getAllProjects } from '../../services/services';
 import './Shell.css';
-
-const initialFileSystem = {
-  home: {
-    user: {
-      'documento.txt': 'Este es el contenido de documento.txt',
-      proyectos: {
-        'tarea.md': '# Lista de tareas\n- [x] Terminar shell\n- [ ] Agregar nano',
-      },
-    },
-  },
-};
 
 const Shell = () => {
   const [history, setHistory] = useState([]);
   const [command, setCommand] = useState('');
   const [path, setPath] = useState(['home', 'user']);
-  const fileSystem = useRef(JSON.parse(JSON.stringify(initialFileSystem)));
   const inputRef = useRef(null);
+  const [fileSystem, setFileSystem] = useState({});
+
+  useEffect(() => {
+    handleGetAllProjects();
+  }, []);
+
+  const handleGetAllProjects = async () => {
+    const projects = await getAllProjects();
+    const fs = mapProjectsToFileSystem(projects);
+    setFileSystem(fs);
+  };
+
+  const mapProjectsToFileSystem = (projects) => {
+    const projectFolders = {};
+  
+    projects.forEach((project) => {
+      projectFolders[project.name] = {
+        [`readme_${project.id}.md`]: `# Proyecto ${project.name}\nEmpresa: ${project.enterprise}`,
+      };
+    });
+  
+    return {
+      home: {
+        user: {
+          proyectos: projectFolders,
+          'bienvenida.txt': 'Bienvenido a tu terminal personal de gestión de proyectos',
+        },
+      },
+    };
+  };
+  
 
   const appendOutput = (output) => {
     setHistory(prev => [...prev, { command, output }]);
@@ -25,7 +45,7 @@ const Shell = () => {
   };
 
   const getCurrentDir = () => {
-    return path.reduce((dir, p) => dir[p], fileSystem.current);
+    return path.reduce((dir, p) => dir[p], fileSystem);
   };
 
   const handleCommand = (e) => {
@@ -107,6 +127,10 @@ const Shell = () => {
           }
         }
         break;
+      
+      case 'history':
+        appendOutput(history.map((cmd, index) => `${index + 1} ${cmd}`).join('\n'));
+        break;
 
       case 'tree':
         {
@@ -127,11 +151,16 @@ const Shell = () => {
             break;
         }
     
+      case 'download':
+        break;
+
       case 'help': appendOutput('Comandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual'); break;
 
       default:
         appendOutput(`${cmd}: comando no encontrado.\nComandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual\nclear/cls -> limpiar la terminal\ncat <archivo> -> leer el contenido del archivo\nrm <archivo|carpeta> -> borrar ese archivo o carpeta\nnano <archivo> -> editar o crear un archivo`);
     }
+
+    history.push(cmd) //esto se puede hacer no?
   };
 
   return (
