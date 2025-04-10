@@ -23,7 +23,7 @@ const Shell = () => {
     const projectFolders = {};
   
     projects.forEach((project) => {
-      projectFolders[project.name] = {
+      projectFolders[`${project.name}/`] = {
         [`readme_${project.id}.md`]: `# Proyecto ${project.name}\nEmpresa: ${project.enterprise}`,
       };
     });
@@ -31,7 +31,7 @@ const Shell = () => {
     return {
       home: {
         user: {
-          proyectos: projectFolders,
+          'proyectos/': projectFolders,
           'bienvenida.txt': 'Bienvenido a tu terminal personal de gestión de proyectos',
         },
       },
@@ -154,13 +154,19 @@ const Shell = () => {
       case 'download':
         break;
 
-      case 'help': appendOutput('Comandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual'); break;
+      case 'help':
+        appendOutput('Comandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual\nclear/cls -> limpiar la terminal\ncat <archivo> -> leer el contenido del archivo\nrm <archivo|carpeta> -> borrar ese archivo o carpeta\nnano <archivo> -> editar o crear un archivo');
+        break;
+
+      case '/h':
+        appendOutput('Comandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual\nclear/cls -> limpiar la terminal\ncat <archivo> -> leer el contenido del archivo\nrm <archivo|carpeta> -> borrar ese archivo o carpeta\nnano <archivo> -> editar o crear un archivo');
+        break;
 
       default:
         appendOutput(`${cmd}: comando no encontrado.\nComandos disponibles:\nls -> Listar directorios y archivos\npwd -> Imprimir el directorio actual\nclear/cls -> limpiar la terminal\ncat <archivo> -> leer el contenido del archivo\nrm <archivo|carpeta> -> borrar ese archivo o carpeta\nnano <archivo> -> editar o crear un archivo`);
     }
 
-    history.push(cmd) //esto se puede hacer no?
+    history.push(cmd)
   };
 
   return (
@@ -175,15 +181,19 @@ const Shell = () => {
       ))}
       <form onSubmit={handleCommand}>
         <div className="shell-line">
-          <span className="shell-path">user@bash</span>:<span className="shell-dir">~/{path.join('/')}</span>$&nbsp;
-          <input
-            ref={inputRef}
-            type="text"
-            value={command}
-            onChange={(e) => setCommand(e.target.value)}
-            className="shell-input"
-            autoFocus
-          />
+          <span className="shell-path">user@bash</span>:<span className="shell-dir">~/{path.join('/')}</span>
+          <div>
+            $&nbsp;
+            <input
+              ref={inputRef}
+              type="text"
+              value={command}
+              onChange={(e) => setCommand(e.target.value)}
+              className="shell-input"
+              autoFocus
+            />
+          </div>
+          
         </div>
       </form>
     </div>
