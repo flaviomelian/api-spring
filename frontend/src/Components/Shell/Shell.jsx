@@ -23,7 +23,7 @@ const Shell = () => {
     const projectFolders = {};
   
     projects.forEach((project) => {
-      projectFolders[`${project.name}/`] = {
+      projectFolders[`${project.name.replaceAll(" ", "-")}/`] = {
         [`readme_${project.id}.md`]: `# Proyecto ${project.name}\nEmpresa: ${project.enterprise}`,
       };
     });
@@ -176,7 +176,7 @@ const Shell = () => {
           <div className="shell-line">
             <span className="shell-path">user@bash</span>:<span className="shell-dir">~/{path.join('/')}</span>$ {entry.command}
           </div>
-          <pre dangerouslySetInnerHTML={{ __html: entry.output }} />
+          <pre dangerouslySetInnerHTML={{ __html: `<b>${entry.output}</b>`} } />
         </div>
       ))}
       <form onSubmit={handleCommand}>
@@ -193,7 +193,6 @@ const Shell = () => {
               autoFocus
             />
           </div>
-          
         </div>
       </form>
     </div>
