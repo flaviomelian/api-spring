@@ -25,7 +25,8 @@
 
 .header div img:hover {
     filter: brightness(85%);
-    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+    box-shadow: 2px 2px 16px 16px rgb(0, 247, 255);
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .house{
