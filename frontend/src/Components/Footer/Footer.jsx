@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <div className='footer'>
             <h3>@flaviomelian</h3>
-            <img className='github' src={github}/>
+            <a className='to-github' href='https://github.com/flaviomelian'><img className='github' src={github}/></a>
         </div>
     )
 }
