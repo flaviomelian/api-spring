@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTaskContext } from '../../Context/Context'; // Importamos el contexto
 import { createTask, updateTask } from '../../services/services';
+import './CreateTaskOK.css'
 
 const CreateTaskOK = () => {
 
@@ -40,8 +41,11 @@ const CreateTaskOK = () => {
           <p><b>Proyecto:</b> {taskData.project.name}</p>
         </div>
       )}
-      <button className="btn sucess" onClick={isEditMode ? handleUpdateTask : handleCreateTask}>Confirmar</button>
-      <button className="btn danger" onClick={() => navigate('/projects')}>Cancelar</button>
+      <div className='confirmation-buttons'>
+        <button className="btn sucess" onClick={isEditMode ? handleUpdateTask : handleCreateTask}>Confirmar</button>
+        <button className="btn danger" onClick={() => navigate('/projects')}>Cancelar</button>
+      </div>
+      
     </div>
   );
 };
