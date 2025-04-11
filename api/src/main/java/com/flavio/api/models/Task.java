@@ -25,7 +25,7 @@ public class Task {
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
-    private int time;
+    private int time, status = 0;
     private String priority;
 
     public Task() {}
@@ -68,6 +68,14 @@ public class Task {
 
     public void setTime(int time) {
         this.time = time;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public String getPriority() {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import './Kanban.css';
-import { deleteTask, getAllTasksByProject } from '../../services/services';
+import { deleteTask, getAllTasksByProject, updateStatusTask } from '../../services/services';
 import TaskCard from '../../Components/TaskCard/TaskCard';  // Importamos el componente de TaskCard
 
 const Kanban = () => {
@@ -27,57 +27,66 @@ const Kanban = () => {
         const fetchTasks = async () => {
             try {
                 const result = await getAllTasksByProject(project.id);
-                setTasks(result);
+    
+                const tasksByStatus = {
+                    0: [], // Por hacer
+                    1: [], // En progreso
+                    2: [], // En revisión
+                    3: []  // Hechas
+                };
+    
+                result.forEach(task => {
+                    tasksByStatus[task.status]?.push(task);
+                });
+    
+                setTasks(tasksByStatus[0]);
+                setProgressTasks(tasksByStatus[1]);
+                setRevisionTasks(tasksByStatus[2]);
+                setDoneTasks(tasksByStatus[3]);
+    
             } catch (error) {
                 console.error(error);
             }
         };
+    
         fetchTasks();
     }, [project]);
-
+    
     const moveTask = async (task, direction) => {
         console.log("Move task:", task.id, direction);
-    
-        // Clonamos la tarea para no modificar el objeto directamente
-        let updatedTask = { ...task };
-    
         // Mover hacia la izquierda
         if (direction === 'left') {
-            if (task.status === 'progress') {
-                updatedTask.status = 'tasks';
+            task.status--;
+            if (task.status === 0) {
                 setProgressTasks((prev) => prev.filter(t => t.id !== task.id));  // Eliminar de 'progress'
-                setTasks((prev) => [...prev, updatedTask]);  // Agregar a 'tasks'
-            } else if (task.status === 'in_revission') {
-                updatedTask.status = 'progress';
+                setTasks((prev) => [...prev, task]);  // Agregar a 'tasks'
+            } else if (task.status === 1) {
                 setRevisionTasks((prev) => prev.filter(t => t.id !== task.id));  // Eliminar de 'in_revission'
-                setProgressTasks((prev) => [...prev, updatedTask]);  // Agregar a 'progress'
-            } else if (task.status === 'done') {
-                updatedTask.status = 'in_revission';
+                setProgressTasks((prev) => [...prev, task]);  // Agregar a 'progress'
+            } else if (task.status === 2) {
                 setDoneTasks((prev) => prev.filter(t => t.id !== task.id));  // Eliminar de 'done'
-                setRevisionTasks((prev) => [...prev, updatedTask]);  // Agregar a 'in_revission'
+                setRevisionTasks((prev) => [...prev, task]);  // Agregar a 'in_revission'
             }
         }
         // Mover hacia la derecha
         else if (direction === 'right') {
-            if (task.status === 'tasks') {
-                updatedTask.status = 'progress';
+            task.status++
+            if (task.status === 1) {
                 setTasks((prev) => prev.filter(t => t.id !== task.id));  // Eliminar de 'tasks'
-                setProgressTasks((prev) => [...prev, updatedTask]);  // Agregar a 'progress'
-            } else if (task.status === 'progress') {
-                updatedTask.status = 'in_revission';
+                setProgressTasks((prev) => [...prev, task]);  // Agregar a 'progress'
+            } else if (task.status === 2) {
                 setProgressTasks((prev) => prev.filter(t => t.id !== task.id));  // Eliminar de 'progress'
-                setRevisionTasks((prev) => [...prev, updatedTask]);  // Agregar a 'in_revission'
-            } else if (task.status === 'in_revission') {
-                updatedTask.status = 'done';
+                setRevisionTasks((prev) => [...prev, task]);  // Agregar a 'in_revission'
+            } else if (task.status === 3) {
                 setRevisionTasks((prev) => prev.filter(t => t.id !== task.id));  // Eliminar de 'in_revission'
-                setDoneTasks((prev) => [...prev, updatedTask]);  // Agregar a 'done'
+                setDoneTasks((prev) => [...prev, task]);  // Agregar a 'done'
             }
         }
     
         // Aquí puedes enviar la actualización al backend si es necesario
         try {
-            // Actualiza el backend con el nuevo estado de la tarea
-           // await updateStatusTask(updatedTask.id, updatedTask);
+            console.log(task)
+            await updateStatusTask(task.id, task);
         } catch (error) {
             console.error('Error al actualizar la tarea:', error);
         }
@@ -89,7 +98,7 @@ const Kanban = () => {
             <div className='header-kanban'>
             <div className='to-do kanban-section'>
                 <div className='header-buttton'>
-                    <h1 className='kanban-section-header'>Por hacer</h1>
+                    <h2 className='kanban-section-header'>Por hacer</h2>
                     <button className='kanban-button' onClick={() => navigate("/create-task", { state: { project } })}> + </button>
                 </div>
                 <div className='tasks'>
@@ -107,7 +116,7 @@ const Kanban = () => {
             </div>
 
             <div className='progress kanban-section'>
-                <h1 className='kanban-section-header'>En progreso</h1>
+                <h2 className='kanban-section-header'>En progreso</h2>
                 <div className='tasks'></div>
                     {progressTasks.map((task) => (
                         <TaskCard 
@@ -121,7 +130,7 @@ const Kanban = () => {
             </div>
 
             <div className='review kanban-section'>
-                <h1 className='kanban-section-header'>En revisión</h1>
+                <h2 className='kanban-section-header'>En revisión</h2>
                 <div className='tasks'></div>
                     {revisionTasks.map((task) => (
                         <TaskCard 
@@ -135,7 +144,7 @@ const Kanban = () => {
             </div>
 
             <div className='done kanban-section'>
-                <h1 className='kanban-section-header'>Hecho</h1>
+                <h2 className='kanban-section-header'>Hecho</h2>
                 <div className='tasks'>
                     {doneTasks.map((task) => (
                         <TaskCard 

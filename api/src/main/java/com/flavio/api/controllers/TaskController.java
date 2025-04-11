@@ -54,6 +54,16 @@ public class TaskController {
             taskService.updateTask(task);
     }
 
+    @PutMapping("/status/{id}")
+    public void updateStatusTask(@PathVariable Long id, @RequestBody Task task) {
+        var taskToUpdateOpt = taskService.getTaskById(id);
+        if (taskToUpdateOpt.isPresent()){
+            Task taskToUpdate = taskToUpdateOpt.get();
+            taskToUpdate.setStatus(task.getStatus());
+            taskService.updateTask(task);
+        }
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteTask(@PathVariable Long id) {
         if (taskService.getTaskById(id).isPresent()) {

@@ -67,6 +67,7 @@ const CreateTask = () => {
                 priority,
                 time,
                 project,
+                status: task ? task.status : 0
             };
             console.log(data)
             setTaskData(data);

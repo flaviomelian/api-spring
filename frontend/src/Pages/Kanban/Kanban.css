@@ -22,7 +22,7 @@
   flex-direction: row;
 }
 
-.kanban-button{
+.kanban-button {
     background-color: #477e35b0;
     border-radius: 6px;
     font-size: 2em;
@@ -34,7 +34,7 @@
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
-.to-do{
+.to-do {
     width: 24%;
     background-color: #00d262;
     border-radius: 10%;
@@ -44,7 +44,7 @@
     border: 5px solid #00d262;
 }
 
-.progress{
+.progress {
     width: 24%;
     background-color: #b3d200;
     border-radius: 10%;
@@ -54,7 +54,7 @@
     border: 5px solid #b3d200;
 }
 
-.review{
+.review {
     width: 24%;
     background-color: #0070ac;
     border-radius: 10%;
@@ -64,7 +64,7 @@
     border: 5px solid #0070ac;
 }
 
-.done{
+.done {
     width: 24%;
     background-color: #7700d2;
     border-radius: 10%;
@@ -86,6 +86,7 @@
 .kanban-section-header {
     position: relative;
     top: 0%;
+    font-size: 2.5em;
 }
 
 .task-card {
@@ -136,11 +137,11 @@
     cursor: pointer;
 }
   
-.delete-modal{
+.delete-modal {
     background-color: rgb(141, 33, 33);
 }
 
-.cancel{
+.cancel {
     background-color: rgb(0, 189, 82);
 }
 
