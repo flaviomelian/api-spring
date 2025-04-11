@@ -19,8 +19,8 @@ const TaskCard = ({ task, onRequestDelete, onMoveLeft, onMoveRight }) => {
             <div className='task-card-footer'>
                 <button className='kanban-button delete' onClick={onRequestDelete}>❌</button>
                 <Link to='/create-task' state={{ task: task, project: task.project }}><img className='pen' src={pen} alt="Editar" /></Link>
-                {onMoveLeft && <button onClick={onMoveLeft}>⬅️</button>}
-                {onMoveRight && <button onClick={onMoveRight}>➡️</button>}
+                {onMoveLeft && <button className='arrow' onClick={onMoveLeft}>⬅️</button>}
+                {onMoveRight && <button className='arrow' onClick={onMoveRight}>➡️</button>}
             </div>
         </div>
     );
