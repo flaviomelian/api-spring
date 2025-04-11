@@ -13,7 +13,7 @@ const TaskCard = ({ task, onRequestDelete, onMoveLeft, onMoveRight }) => {
                 <div className='task-card-labels'>
                     <p>Prioridad: {task.priority}</p>
                     <p>Días estimados: {task.time}</p>
-                    <p>Asignado a: {task.assignedTo}</p>
+                    <p><b>{task.project.name}</b></p>
                 </div>
             </div>
             <div className='task-card-footer'>
