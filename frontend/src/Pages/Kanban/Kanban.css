@@ -35,6 +35,7 @@
     padding: 1%;
     margin: 0.3%;
     justify-content: flex-start;
+    border: 5px solid #00d262;
 }
 
 .progress{
@@ -44,6 +45,7 @@
     padding: 1%;
     margin: 0.3%;
     justify-content: flex-start;
+    border: 5px solid #b3d200;
 }
 
 .review{
@@ -53,6 +55,7 @@
     padding: 1%;
     margin: 0.3%;
     justify-content: flex-start;
+    border: 5px solid #0070ac;
 }
 
 .done{
@@ -62,12 +65,15 @@
     padding: 1%;
     margin: 0.3%;
     justify-content: flex-start;
+    border: 5px solid #7700d2;
 }
 
 .kanban-section {
     display: flex;
     flex-direction: column;
     height: 56vh;
+    overflow-y: hidden;
+    padding: 2%;
 }
 
 .kanban-section-header {
@@ -129,4 +135,33 @@
 
 .cancel{
     background-color: rgb(0, 189, 82);
+}
+
+/* Scroll personalizado */
+.tasks {
+    overflow-y: auto; /* Habilitar el scroll vertical */
+    max-height: 500px; /* Definir la altura máxima de la sección, ajusta según tus necesidades */
+    padding-right: 10px; /* Espacio para la barra de desplazamiento */
+}
+
+/* Estilo para el track de la barra de desplazamiento */
+.tasks::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo para el "thumb" de la barra de desplazamiento */
+.tasks::-webkit-scrollbar-thumb {
+    background-color: #0070ac; /* Color del thumb, puedes cambiarlo por lo que prefieras */
+    border-radius: 4px; /* Bordes redondeados para el thumb */
+}
+
+/* Estilo cuando el thumb está en hover */
+.tasks::-webkit-scrollbar-thumb:hover {
+    background-color: #005b8c; /* Cambio de color cuando el thumb es hoverizado */
+}
+
+/* Estilo para el track de la scrollbar */
+.tasks::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color del track */
+    border-radius: 4px; /* Bordes redondeados para el track */
 }
