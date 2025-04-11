@@ -36,6 +36,7 @@ const Kanban = () => {
     }, [project]);
 
     const moveTask = async (task, direction) => {
+        console.log("Move task:", task.id, direction);
     
         // Clonamos la tarea para no modificar el objeto directamente
         let updatedTask = { ...task };
@@ -72,7 +73,16 @@ const Kanban = () => {
                 setDoneTasks((prev) => [...prev, updatedTask]);  // Agregar a 'done'
             }
         }
-    };    
+    
+        // Aquí puedes enviar la actualización al backend si es necesario
+        try {
+            // Actualiza el backend con el nuevo estado de la tarea
+           // await updateStatusTask(updatedTask.id, updatedTask);
+        } catch (error) {
+            console.error('Error al actualizar la tarea:', error);
+        }
+    };
+        
 
     return (
         <div className='kanban'>
