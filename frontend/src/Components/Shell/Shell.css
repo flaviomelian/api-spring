@@ -81,6 +81,10 @@
 }
 
 @media screen and (max-width: 940px) and (min-width: 769px) and (orientation: landscape){
-  .shell-container { position: relative; top: 3vh; height: 65vh;}
-  .footer{ height: 7vh;}
+  .shell-container { position: relative; top: 3vh; height: 65vh; }
+  .footer{ height: 7vh; }
+}
+
+@media screen and (max-width: 426px) {
+  .shell-container { top: 3vh; height: 65vh; } 
 }

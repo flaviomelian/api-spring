@@ -88,6 +88,48 @@
     .header{ height: 5vh; }
 }
 
-@media screen and (max-width: 940px) and (min-width: 769px) and (orientation: landscape){
+@media screen and (max-width: 940px) and (min-width: 770px) and (orientation: landscape){
     .header{ height: 3vh; }
+    .features-list{ margin-top: 3rem }
+    .home-actions { margin-top: 4rem;}
+}
+
+@media screen and (max-width: 769px) and (min-width: 427px) and (orientation: portrait){
+    .header{ height: 3vh; }
+    .welcome{ margin-top: 15%; }
+    .description { margin-top: 10%; }
+    .features-list{ 
+        margin-left: 24%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        width: 70%;
+    }
+    .home-actions { margin-top: 4rem;}
+}
+
+@media screen and (max-width: 426px) and (orientation: portrait) {
+    .header{ height: 7vh; }
+    .header div { width: 33%; }
+    .header div img{ width: 45%; }
+    .welcome{ margin-top: 5%; margin-right: 3%; font-size: 23px;}
+    .description{margin-right: 5%; margin-left: 5%;}
+    .features-list{margin: 2rem 0.7rem 2rem 0.7rem;}
+    .home-actions { flex-direction: column; }
+    .home-button { width: 55%; margin-left: auto; margin-right: auto; }
+    .home-secondary { width: 55%; margin-left: auto; margin-right: auto; }
+    .footer h3 { top: -1vh; }
+    .to-github { width: 15%; margin-right: 3%;}
+}
+
+@media screen and (max-width: 769px) and (min-width: 427px) and (orientation: landscape){
+    .header{ height: 13vh; }
+    .welcome{ margin-top: 15%; }
+    .description { margin-top: 10%; }
+    .features-list{ 
+        margin-left: 24%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        width: 70%;
+    }
+    .home-actions { margin-top: 4rem;}
 }
