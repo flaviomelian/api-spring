@@ -10,13 +10,18 @@
     width: 30%;
 }
 
-@media screen and (max-width: 769px) and (min-width: 426px) and (orientation: portrait) {
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
     .clean{ font-size: 30px; }
     .header{ height: 10vh; }
     .dashboard{ height: 100vh; margin: 30% 0% 20% 0%}
 }
 
-@media screen and (max-width: 769px) and (min-width: 426px) and (orientation: landscape) {
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) {
     .clean{ font-size: 30px; }
     .header{ height: 10vh; }
+    .dashboard{ height: 100vh; margin-top: 5%;}
+}
+
+@media screen and (max-width: 1025px) {
+    .header{ height: 10vh;}
 }

@@ -30,6 +30,10 @@ h3{
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
+@media screen and (max-width: 1025px) and (min-width: 941px){
+    h3 {top: 0vh;}
+}
+
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
     .footer {
         margin-top: 5%;
