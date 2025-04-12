@@ -1,3 +1,5 @@
+.header{ margin-bottom: 0;}
+
 .home-container {
     display: flex;
     justify-content: center;
@@ -7,6 +9,11 @@
 .home-content {
     max-width: 800px;
     text-align: center;
+}
+
+.welcome{
+    margin-top: 0%;
+    font-size: 35px;
 }
 
 .description {
@@ -20,7 +27,7 @@
 
 .features-list {
     text-align: center;
-    margin: 2rem 2rem 2rem 13rem;
+    margin: 1rem 0rem 0rem 13rem;
     padding: 0;
     list-style: none;
     max-width: 600px;
@@ -38,7 +45,7 @@
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .home-button {
@@ -61,3 +68,21 @@
     cursor: pointer;
 }
   
+@media screen and (max-width: 768px) and (min-width: 426px) {
+    h1{ font-size: 0.5rem; }
+    .home-container{ margin: 0% 5% 0% 5%; }
+    .description { font-size: 1.2rem; }
+    .features-list { 
+        margin: 0;
+        margin-left: 24%;
+        width: 100%;
+    }
+    .features-list li { 
+        position: relative;
+        right: 20%;
+        margin: 0.5rem 0rem 0.5rem 0;
+        font-size: 1.2rem;
+    }
+    .home-button{ font-size: 1.2em; }
+    .home-secondary{ font-size: 1.2em; }
+}

@@ -5,7 +5,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 1%;
-    background: linear-gradient(#00000000 80%, #077ccf);
+    background: linear-gradient(#00000000 1%, #077ccf 16%);
 }
 
 h3{
@@ -28,4 +28,14 @@ h3{
     filter: brightness(85%);
     box-shadow: 1px 1px 8px 8px rgb(0, 247, 255);
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+    .footer {
+        margin-top: 5%;
+        padding-bottom: 5%;
+        height: 33vh;    
+    }
+    .to-github { width: 10%; }
+    h3 { top: 0vh; }
 }

@@ -9,3 +9,15 @@
     margin: 2% auto;
     width: 30%;
 }
+
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
+    .clean{ font-size: 30px; }
+    .header{ height: 10vh; }
+    .dashboard{ height: 100vh; margin: 30% 0% 20% 0%}
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) {
+    .clean{ font-size: 30px; }
+    .header{ height: 10vh; }
+    .dashboard{ height: 100vh; margin: 20% 0% 20% 0%}
+}

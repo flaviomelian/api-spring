@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="home-content">
-        <h1>👋 Bienvenido al Gestor de Proyectos</h1>
+        <h1 className='welcome'>👋 Bienvenido al Gestor de Proyectos</h1>
         <p className="description">
           <b>
             Esta aplicación te permite organizar tus proyectos de forma visual, colaborativa y eficiente.
