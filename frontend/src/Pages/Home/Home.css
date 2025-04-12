@@ -68,7 +68,7 @@
     cursor: pointer;
 }
   
-@media screen and (max-width: 768px) and (min-width: 426px) {
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait){
     h1{ font-size: 0.5rem; }
     .home-container{ margin: 0% 5% 0% 5%; }
     .description { font-size: 1.2rem; }
@@ -85,5 +85,9 @@
     }
     .home-button{ font-size: 1.2em; }
     .home-secondary{ font-size: 1.2em; }
-    .header{ height: 8vh; }
+    .header{ height: 5vh; }
+}
+
+@media screen and (max-width: 940px) and (min-width: 769px) and (orientation: landscape){
+    .header{ height: 3vh; }
 }

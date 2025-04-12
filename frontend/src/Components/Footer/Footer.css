@@ -38,3 +38,8 @@ h3{
     }
     .to-github { width: 10%; }
 }
+
+@media screen and (max-width: 940px) and (min-width: 769px) and (orientation: landscape){
+    .to-github { width: 6%; }
+    h3 {top: 0vh;}
+}
