@@ -74,7 +74,7 @@
   .shell-dir { font-size: 1.1rem; }
   .shell-input { font-size: 1.1rem; }
   .shell-line { font-size: 1.1rem; }
-  .shell-container { height: 100vh; }
+  .shell-container { height: 100vh; margin-top: 5%; }
   .shell-container div { font-size: 1.1rem; }
   pre b { font-size: 1.1rem; }
   .footer{ height: 7vh;}

@@ -75,7 +75,7 @@
     .features-list { 
         margin: 0;
         margin-left: 24%;
-        width: 100%;
+        width: 70%;
     }
     .features-list li { 
         position: relative;
@@ -85,4 +85,5 @@
     }
     .home-button{ font-size: 1.2em; }
     .home-secondary{ font-size: 1.2em; }
+    .header{ height: 8vh; }
 }
