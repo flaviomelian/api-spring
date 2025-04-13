@@ -66,3 +66,24 @@ td, th{
     margin: auto;
     border-radius: 5%;
 }
+
+@media screen and (max-width: 769px) and (min-width: 426px) and (orientation: portrait) {
+    .header { width: 100vw; }
+    .team-dashboard { width: 100vw; }
+    table{ font-size: 15px; margin: 2%;}
+    td, th { padding: 0; }
+    .tools{ display: flex; justify-content: center; flex-direction: column; left: 40%;}
+    .tools td { margin-top: 10%; }
+    .tools td button { width: 100%; font-size: 15px; }
+}
+
+@media screen and (max-width: 949px) and (min-width: 769px) and (orientation: landscape) {
+    .header { width: 100vw; }
+    .team-dashboard { width: 100vw; }
+    table{ font-size: 15px; margin: 2%;}
+    td, th { padding: 0; }
+    .tools{ display: flex; justify-content: center; flex-direction: column; left: 30%;}
+    .tools td { margin-top: 5%; }
+    .tools td button { width: 100%; font-size: 15px; }
+    .operations { left: 9%; }
+}

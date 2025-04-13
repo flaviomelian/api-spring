@@ -70,3 +70,9 @@ input:focus, select:focus {
     background-color: #b5bc02;
     color: #f6ff00;
 }
+
+@media screen and (max-width: 769px) and (min-width: 426px) and (orientation: portrait) {
+    .task { width: 8%; }
+    #taskForm { width: 75%; }
+    #taskForm button { width: 60%; font-size: 18px; margin: auto; }
+}

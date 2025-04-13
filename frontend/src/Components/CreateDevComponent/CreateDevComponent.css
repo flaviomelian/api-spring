@@ -70,3 +70,9 @@ input:focus, select:focus {
     background-color: #b5bc02;
     color: #f6ff00;
 }
+
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
+    .dev { width: 10%; }
+    #userForm { width: 50%; }
+    #userForm button { width: 100%; margin-top: 15%; }
+}

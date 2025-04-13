@@ -71,3 +71,12 @@ td, th{
     margin: auto;
     border-radius: 5%;
 }
+
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
+    .operations-project{ left: 7%; }
+    .header { height: 6vh; }
+}
+
+@media screen and (max-width: 940px) and (max-height: 768px) and (orientation: landscape) {
+    .operations-project{ left: 4%; }
+}

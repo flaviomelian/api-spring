@@ -8,7 +8,7 @@ import com.flavio.api.services.FileService;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:5174")
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api/Files")
 public class FileController {

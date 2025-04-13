@@ -60,3 +60,10 @@ input:focus, select:focus {
     background-color: #b5bc02;
     color: #f6ff00;
 }
+
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
+    .project { width: 10%; }
+    .project-img-header { margin-bottom: 5%; }
+    #projectForm { width: 50%; }
+    #projectForm button { width: 100%; margin-top: 15%; font-size: 25px;}
+}

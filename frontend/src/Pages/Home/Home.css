@@ -95,7 +95,6 @@
 }
 
 @media screen and (max-width: 769px) and (min-width: 427px) and (orientation: portrait){
-    .header{ height: 3vh; }
     .welcome{ margin-top: 15%; }
     .description { margin-top: 10%; }
     .features-list{ 
