@@ -67,3 +67,7 @@ input:focus, select:focus {
     #projectForm { width: 50%; }
     #projectForm button { width: 100%; margin-top: 15%; font-size: 25px;}
 }
+
+@media screen and (max-width: 940px) and (min-width: 426px) and (orientation: landscape) {
+    .project { width: 8%; }
+}

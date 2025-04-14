@@ -76,3 +76,7 @@ input:focus, select:focus {
     #userForm { width: 50%; }
     #userForm button { width: 100%; margin-top: 15%; }
 }
+
+@media screen and (max-width: 940px) and (min-width: 426px) and (orientation: landscape) {
+    .dev { width: 8%; }
+}
