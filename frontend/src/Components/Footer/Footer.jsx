@@ -5,7 +5,7 @@ import github from './../../assets/github.jpg'
 const Footer = () => {
     return (
         <div className='footer'>
-            <h3>@flaviomelian</h3>
+            <h2>@flaviomelian</h2>
             <a className='to-github' href='https://github.com/flaviomelian'><img className='github' src={github}/></a>
         </div>
     )

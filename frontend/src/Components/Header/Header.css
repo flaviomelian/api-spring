@@ -47,6 +47,10 @@
     width: 25%;
 }
 
+@media screen and (max-width: 1025px) and (min-width: 941px) {
+    .header { height: 8vh; }
+}
+
 @media screen and (max-width: 940px) and (min-width: 769px) and (orientation: landscape){
     .header{ height: 10vh; }
 }
