@@ -80,3 +80,8 @@ input:focus, select:focus {
 @media screen and (max-width: 940px) and (min-width: 426px) and (orientation: landscape) {
     .dev { width: 8%; }
 }
+
+@media screen and (max-width: 426px) and (orientation: portrait) {
+    .dev { width: 10%; }
+    #userForm { width: 90%; }
+}

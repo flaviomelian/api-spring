@@ -71,3 +71,11 @@ input:focus, select:focus {
 @media screen and (max-width: 940px) and (min-width: 426px) and (orientation: landscape) {
     .project { width: 8%; }
 }
+
+@media screen and (max-width: 426px) and (orientation: portrait) {
+    .project-img-header { margin-bottom: 5%; }
+    #title { font-size: 30px; }
+    #projectForm { width: 75%; }
+    .project{ width: 10%; }
+    .clean{ margin: 15% auto; }
+}
