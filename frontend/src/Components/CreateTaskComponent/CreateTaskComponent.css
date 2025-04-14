@@ -32,12 +32,12 @@
     justify-content: center;
     justify-items: center;
     justify-content: space-between;
-    margin: 3% 3% 3% 0%;
+    margin: 2% 2% 3% 0%;
     width: 100%;
 }
 
 label{
-    font-size: 22px;
+    font-size: 35px;
 }
 
 #developers{
