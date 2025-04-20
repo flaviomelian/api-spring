@@ -45,17 +45,17 @@ const Team = () => {
             <h1>Equipo</h1> 
                 <button className='btn primary clean' onClick={() => navigate("../create-dev")}>Crear desarrollador</button>
                 {users.length > 0 ? (
-                <table>
+                <table className='developers-table'>
                     <thead>
                         <tr>
-                            <td><b>ID</b></td>
-                            <td><b>Usuario</b></td>
-                            <td><b>Nombre</b></td>
-                            <td><b>Apellidos</b></td>
-                            <td><b>Rol</b></td>
-                            <td><b>Email</b></td>
-                            <td><b>Salario</b></td>
-                            <td className='operations'><b>Operaciones</b></td>
+                            <th>ID</th>
+                            <th>Usuario</th>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Rol</th>
+                            <th>Email</th>
+                            <th>Salario</th>
+                            <th>Operaciones</th>
                         </tr>
                     </thead>
                     <tbody>

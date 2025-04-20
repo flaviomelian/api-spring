@@ -64,6 +64,7 @@ td, th{
 
 .btn{
     color: #e2e1e1;
+    font-size: 20px;
 }
 
 .not-found{
@@ -72,11 +73,32 @@ td, th{
     border-radius: 5%;
 }
 
+.project-list { display: none; }
+
+@media screen and (max-width: 1025px) and (min-width: 769px){
+    table { width: 90%; padding: 0% 1% 0% 0% !important; }
+    thead { font-size: 20px; }
+    tbody { font-size: 18px; }
+    td { padding: 2% !important; }
+    .tools { left: 0%; }
+    .tools td button { font-size: 16px; }
+    .operations-project{ left: -2%; }
+}
+
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
     .operations-project{ left: 7%; }
     .header { height: 6vh; }
+    table { margin: 2%; }
 }
 
 @media screen and (max-width: 940px) and (max-height: 768px) and (orientation: landscape) {
     .operations-project{ left: 4%; }
+}
+
+@media screen and (max-width: 426px) and (orientation: portrait) {
+    .header { padding-bottom: 5% !important; }
+    .project-list { display: flex; flex-direction: column; }
+    .project-item span { display: flex; flex-direction: row; justify-content: space-between; width: 90%; }
+    .project-item span p { margin: 1%; }
+    .project-item button { margin: 1%; }
 }

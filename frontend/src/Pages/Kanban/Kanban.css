@@ -1,6 +1,11 @@
+.report {
+    font-size: 25px;
+    margin: 1% auto
+}
+
 .kanban{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
@@ -77,7 +82,7 @@
 .kanban-section {
     display: flex;
     flex-direction: column;
-    height: 56vh;
+    height: 50vh;
     overflow-y: hidden;
     padding: 0% 2% 2% 2%;
     box-shadow: 0 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -145,36 +150,29 @@
     background-color: rgb(0, 189, 82);
 }
 
-/* Scroll personalizado */
 .tasks {
-    overflow-y: auto; /* Habilitar el scroll vertical */
-    max-height: 500px; /* Definir la altura máxima de la sección, ajusta según tus necesidades */
-    padding-right: 10px; /* Espacio para la barra de desplazamiento */
+    overflow-y: auto;
+    max-height: 500px;
+    padding-right: 10px;
 }
 
-/* Estilo para el track de la barra de desplazamiento */
 .tasks::-webkit-scrollbar {
-    width: 8px; /* Ancho de la barra de desplazamiento */
+    width: 8px; 
 }
 
-/* Estilo para el "thumb" de la barra de desplazamiento */
 .tasks::-webkit-scrollbar-thumb {
-    background-color: #0070ac; /* Color del thumb, puedes cambiarlo por lo que prefieras */
-    border-radius: 4px; /* Bordes redondeados para el thumb */
+    background-color: #00baf8;
+    border-radius: 4px;
 }
 
-/* Estilo cuando el thumb está en hover */
 .tasks::-webkit-scrollbar-thumb:hover {
-    background-color: #005b8c; /* Cambio de color cuando el thumb es hoverizado */
+    background-color: #005b8c;
 }
 
-/* Estilo para el track de la scrollbar */
 .tasks::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Color del track */
-    border-radius: 4px; /* Bordes redondeados para el track */
+    background-color: #f1f1f1;
+    border-radius: 4px;
 }
-
-
 
 @media screen and (max-width: 940px) and (orientation: landscape) {
     .kanban-section-header { font-size: 1.5rem; }
@@ -183,12 +181,14 @@
 }
 
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
+    .header { padding-bottom: 3%; }
     .header-kanban { flex-direction: column; }
     .kanban-section { width: 70%; margin-top: 5%;}
     .arrow { width: 54%; position: relative; left: 25%; margin: 2%; transform: rotate(90deg); }
 }
 
 @media screen and (max-width: 426px) and (orientation: portrait) {
+    .report { margin-bottom: 5%; }
     .header-kanban { flex-direction: column; }
     .kanban-section { width: 80%; margin-bottom: 5%; }
     .tasks { width: 97%; }

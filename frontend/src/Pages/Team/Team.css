@@ -11,7 +11,7 @@
     margin: 0 auto;
 }
 
-table{
+.developers-table{
     margin: 0 auto;
     padding: 3% 7% 3% 3%;
     background-color: #005499;
@@ -32,26 +32,25 @@ tbody div{
 
 td, th{
     padding: 10px;
-}
-
-.operations{
-    position: relative;
-    left: 6%;
+    font-size: 20px;
 }
 
 .warning{
     background-color: #b5bc02;
     color: #f6ff00;
+    font-size: 20px;
 }
 
 .danger{
     background-color: #990000;
     color: #e80000;
+    font-size: 20px;
 }
 
 .success{
     background-color: #2e9900;
     color: #1fe800;
+    font-size: 20px;
 }
 
 .clean{
@@ -69,33 +68,53 @@ td, th{
 
 .user-list{ display: none;}
 
+@media screen and (max-width: 1025px) and (min-width: 770px) {
+    .tools{ display: flex; justify-content: center; flex-direction: column; }
+    .tools td button { width: 100%; }
+}
+
 @media screen and (max-width: 769px) and (min-width: 426px) and (orientation: portrait) {
     .header { width: 100vw; }
     .team-dashboard { width: 100vw; }
-    table{ font-size: 15px; margin: 2%;}
+    .developers-table{ display: none; }
+    .user-list{ display: flex; flex-direction: column; position: relative; left: 15%;  width: 60%; }
+    .header { width: 100vw; }
     td, th { padding: 0; }
-    .tools{ display: flex; justify-content: center; flex-direction: column; left: 40%;}
-    .tools td { margin-top: 10%; }
+    .tools{ display: flex; justify-content: center; flex-direction: column; left: 30%;}
+    .tools td { margin-top: 5%; }
     .tools td button { width: 100%; font-size: 15px; }
+    .user-header { display: flex; flex-direction: row; }
+    .user-item { display: flex; flex-direction: column; margin-bottom: 5%; }
+    .user-item span { display: flex; justify-content: space-between; flex-direction: row; margin: 0.5%}
+    .user-item span p { margin: 0; }
+    .operations { display: none;}
 }
 
 @media screen and (max-width: 949px) and (min-width: 769px) and (orientation: landscape) {
     .header { width: 100vw; }
     .team-dashboard { width: 100vw; }
-    table{ font-size: 15px; margin: 2%;}
+    .developers-table{ display: none; }
+    .user-list{ display: flex; flex-direction: column; position: relative; left: 15%;  width: 60%; }
+    .header { width: 100vw; }
     td, th { padding: 0; }
     .tools{ display: flex; justify-content: center; flex-direction: column; left: 30%;}
     .tools td { margin-top: 5%; }
     .tools td button { width: 100%; font-size: 15px; }
-    .operations { left: 9%; }
+    .user-header { display: flex; flex-direction: row; }
+    .user-item { display: flex; flex-direction: column; margin-bottom: 5%; }
+    .user-item span { display: flex; justify-content: space-between; flex-direction: row; margin: 0.5%}
+    .user-item span p { margin: 0; }
+    .operations { display: none;}
 }
 
 @media screen and (max-width: 426px) and (orientation: portrait) {
     .header { width: 100vw; }
     .team-dashboard { width: 100vw; }
-    table { display: none;}
+    .team-dashboard .clean { font-size: 20px }
+    .developers-table { display: none;}
     .tools { display: flex; justify-content: space-evenly; flex-direction: row; left: 0%; margin-bottom: 2%;}
-    .user-list { padding: 0 5%; display: flex; flex-direction: column;}
+    .tools button {width: 30%; font-size: 15px}
+    .user-list { padding: 0 auto; margin: 0 auto; display: flex; flex-direction: column;  width: 60%;}
     .user-header { display: flex; flex-direction: row; }
     .user-item { display: flex; flex-direction: column; margin-bottom: 5%; }
     .user-item span { display: flex; justify-content: space-between; flex-direction: row; margin: 0.5%}

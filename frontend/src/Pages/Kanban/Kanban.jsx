@@ -14,6 +14,17 @@ const Kanban = () => {
     const [taskToDelete, setTaskToDelete] = useState(null);
     const navigate = useNavigate();
 
+    const handleNavigateToReport = () => {
+        localStorage.setItem('project', JSON.stringify(project));
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+        localStorage.setItem('progressTasks', JSON.stringify(progressTasks));
+        localStorage.setItem('revisionTasks', JSON.stringify(revisionTasks));
+        localStorage.setItem('doneTasks', JSON.stringify(doneTasks));
+    
+        navigate("/report");
+    };
+    
+
     const handleDelete = (id) => {
         setTasks((prev) => prev.filter((t) => t.id !== id));
         setProgressTasks((prev) => prev.filter((t) => t.id !== id));
@@ -95,69 +106,71 @@ const Kanban = () => {
 
     return (
         <div className='kanban'>
+            <button className='btn btn-primary clean report' onClick={handleNavigateToReport}>Informe del proyecto</button>
             <div className='header-kanban'>
-            <div className='to-do kanban-section'>
-                <div className='header-buttton'>
-                    <h2 className='kanban-section-header'>Por hacer</h2>
-                    <button className='kanban-button' onClick={() => navigate("/create-task", { state: { project } })}> + </button>
+                <div className='to-do kanban-section'>
+                    <div className='header-buttton'>
+                        <h2 className='kanban-section-header'>Por hacer</h2>
+                        <button className='kanban-button' onClick={() => navigate("/create-task", { state: { project } })}> + </button>
+                    </div>
+                    <div className='tasks'>
+                        {tasks.map((task) => (
+                            <TaskCard 
+                                key={task.id} 
+                                task={task} 
+                                onRequestDelete={() => setTaskToDelete(task)} 
+                                onMoveLeft={() => moveTask(task, 'left')} 
+                                onMoveRight={() => moveTask(task, 'right')} 
+                            />
+                        ))}
+                    </div>
+                    
                 </div>
-                <div className='tasks'>
-                    {tasks.map((task) => (
-                        <TaskCard 
-                            key={task.id} 
-                            task={task} 
-                            onRequestDelete={() => setTaskToDelete(task)} 
-                            onMoveLeft={() => moveTask(task, 'left')} 
-                            onMoveRight={() => moveTask(task, 'right')} 
-                        />
-                    ))}
+
+                <div className='progress kanban-section'>
+                    <h2 className='kanban-section-header'>En progreso</h2>
+                    <div className='tasks'>
+                        {progressTasks.map((task) => (
+                            <TaskCard 
+                                key={task.id} 
+                                task={task} 
+                                onRequestDelete={() => setTaskToDelete(task)} 
+                                onMoveLeft={() => moveTask(task, 'left')} 
+                                onMoveRight={() => moveTask(task, 'right')} 
+                            />
+                        ))}
+                    </div>
                 </div>
-                
-            </div>
 
-            <div className='progress kanban-section'>
-                <h2 className='kanban-section-header'>En progreso</h2>
-                <div className='tasks'></div>
-                    {progressTasks.map((task) => (
-                        <TaskCard 
-                            key={task.id} 
-                            task={task} 
-                            onRequestDelete={() => setTaskToDelete(task)} 
-                            onMoveLeft={() => moveTask(task, 'left')} 
-                            onMoveRight={() => moveTask(task, 'right')} 
-                        />
-                    ))}
-            </div>
-
-            <div className='review kanban-section'>
-                <h2 className='kanban-section-header'>En revisión</h2>
-                <div className='tasks'></div>
-                    {revisionTasks.map((task) => (
-                        <TaskCard 
-                            key={task.id} 
-                            task={task} 
-                            onRequestDelete={() => setTaskToDelete(task)} 
-                            onMoveLeft={() => moveTask(task, 'left')} 
-                            onMoveRight={() => moveTask(task, 'right')} 
-                        />
-                    ))}
-            </div>
-
-            <div className='done kanban-section'>
-                <h2 className='kanban-section-header'>Hecho</h2>
-                <div className='tasks'>
-                    {doneTasks.map((task) => (
-                        <TaskCard 
-                            key={task.id} 
-                            task={task} 
-                            onRequestDelete={() => setTaskToDelete(task)} 
-                            onMoveLeft={() => moveTask(task, 'left')} 
-                            onMoveRight={() => moveTask(task, 'right')}
-                        />
-                    ))}
+                <div className='review kanban-section'>
+                    <h2 className='kanban-section-header'>En revisión</h2>
+                    <div className='tasks'>
+                        {revisionTasks.map((task) => (
+                            <TaskCard 
+                                key={task.id} 
+                                task={task} 
+                                onRequestDelete={() => setTaskToDelete(task)} 
+                                onMoveLeft={() => moveTask(task, 'left')} 
+                                onMoveRight={() => moveTask(task, 'right')} 
+                            />
+                        ))}
+                    </div>
                 </div>
-                
-            </div>
+
+                <div className='done kanban-section'>
+                    <h2 className='kanban-section-header'>Hecho</h2>
+                    <div className='tasks'>
+                        {doneTasks.map((task) => (
+                            <TaskCard 
+                                key={task.id} 
+                                task={task} 
+                                onRequestDelete={() => setTaskToDelete(task)} 
+                                onMoveLeft={() => moveTask(task, 'left')} 
+                                onMoveRight={() => moveTask(task, 'right')}
+                            />
+                        ))}
+                    </div>
+                </div>
 
             </div>
             {taskToDelete && (

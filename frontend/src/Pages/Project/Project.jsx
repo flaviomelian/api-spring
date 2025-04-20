@@ -86,7 +86,41 @@ const Project = () => {
                         </tr>
                     ))}    
                     </tbody>
-                </table> ): (
+                </table> ) : (
+                    <>
+                        <h2>Sin proyectos dados de alta</h2>
+                        <img className='not-found' src={notfound}/>
+                    </>
+                )}
+                {projects.length > 0 ? (
+                    <ul className="project-list">
+                        {projects.map((project, index) => (
+                        <li key={index} className="project-item">
+                            <span><b>ID:</b> <p>{project.id}</p></span>
+                            <span><b>Nombre:</b> <p>{project.name}</p></span>
+                            <span><b>Fecha de inicio:</b> <p>{project.initdate}</p></span>
+                            <span><b>Empresa:</b> <p>{project.enterprise}</p></span>
+                            <span><b>Deadline:</b> <p>{project.deadline}</p></span>
+                            <span className='tools'>
+                                <button
+                                    className="btn warning"
+                                    onClick={() => navigate("../create-project", { state: { project } })}
+                                >
+                                    Editar
+                                </button>
+                                <button
+                                    className="btn danger"
+                                    onClick={() => handleDeleteProject(project.id)}
+                                >
+                                    Eliminar
+                                </button>
+                                <button className="btn success" onClick={() => navigate("../create-task", { state: { project: project } })}>Crear Tarea</button>
+                                <button className="btn" onClick={() => navigate("../kanban", { state: { project: project } })}>Ver Tareas</button>
+                            </span>
+                        </li>
+                        ))}
+                    </ul> 
+                ) : (
                 <>
                     <h2>Sin proyectos dados de alta</h2>
                     <img className='not-found' src={notfound}/>
