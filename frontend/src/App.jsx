@@ -1,5 +1,4 @@
 import { ProjectProvider, UserProvider, TaskProvider } from './Context/Context';
-import Project from './Pages/Project/Project';
 import { DndProvider } from 'react-dnd';  // Importar el proveedor de DnD
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import router from './Routes/index'

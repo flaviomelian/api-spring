@@ -114,7 +114,7 @@ td, th{
     .developers-table { display: none;}
     .tools { display: flex; justify-content: space-evenly; flex-direction: row; left: 0%; margin-bottom: 2%;}
     .tools button { width: 30%; font-size: 15px; padding-left: 4%; }
-    .user-list { padding: 0; margin: 0 auto; display: flex; flex-direction: column;  width: 60%;}
+    .user-list { padding: 0; margin: 0 12%; display: flex; flex-direction: column; list-style: none; width: 75%;}
     .user-header { display: flex; flex-direction: row; }
     .user-item { display: flex; flex-direction: column; margin-bottom: 5%; }
     .user-item span { display: flex; justify-content: space-between; flex-direction: row; margin: 0.5%}
