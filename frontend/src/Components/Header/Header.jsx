@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import casita from "./../../assets/casita.png";
 import team from "./../../assets/team.jpg";
 import code from "./../../assets/code.png";
+import login from "./../../assets/login.jpg";
 import "./Header.css";
 
 const Header = () => {
@@ -18,6 +19,9 @@ const Header = () => {
       </div>
       <div onClick={() => navigate("/code")}>
         <img className="code" src={code} alt="Código" />
+      </div>
+      <div onClick={() => navigate("/login")}>
+        <img className="login" src={login} alt="Login" />
       </div>
     </div>
   );

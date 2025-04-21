@@ -1,0 +1,42 @@
+.signup-header {
+    width: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3%;
+    margin-top: 0%;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signup-form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 10px;
+    margin-bottom: 3%;
+}
+
+label {
+    font-size: 20px;
+    color: #fff;
+    margin-right: 10px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.signup-btn {
+    font-size: 20px;
+}

@@ -17,11 +17,9 @@ const LoginForm = () => {
                 <div className='login-form-group'>
                     <button className='btn btn-primary clean' type="submit">Iniciar sesión</button>
                 </div>
-                <div className='login-form-group'>
+                <div className='login-form-group help'>
                     <p>¿No tienes una cuenta? <a href="/signup">Regístrate</a></p>
-                </div>
-                <div className='login-form-group'>
-                    <p><a href="/forgot-password">¿Olvidaste tu contraseña?</a></p>
+                    <p><a href="/forgot-password">¿Olvidó su contraseña?</a></p>
                 </div>
         </form>
     </div>
