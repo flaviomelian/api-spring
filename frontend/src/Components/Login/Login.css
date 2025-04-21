@@ -1,0 +1,36 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.login-form-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+.login-form-group p {
+    margin-left: 25%;
+}
+
+.login-form-group a {
+    width: 100%;
+    position: relative;
+    left: 15%;
+    color: rgb(0, 39, 110);
+    background-color: rgba(0, 38, 110, 0);
+    transition: box-shadow 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: rgb(2, 63, 177);
+    background-color: rgba(103, 187, 255, 0.4);
+    box-shadow: -1px 1px 5px 5px rgba(103, 187, 255, 0.4);
+}

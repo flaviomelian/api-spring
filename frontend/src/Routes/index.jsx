@@ -13,6 +13,8 @@ import Kanban from '../Pages/Kanban/Kanban'
 import Home from '../Pages/Home/Home'
 import Code from '../Pages/Code/Code'
 import Report from '../Pages/Report/Report'
+import Signup from '../Pages/Signup/Signup'
+import Login from '../Pages/Login/Login'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
       {
         path: '',
         element: <Home />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: '/signup',
+        element: <Signup />,
       },
       {
         path: '/dashboard',
