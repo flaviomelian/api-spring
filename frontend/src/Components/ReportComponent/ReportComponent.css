@@ -138,7 +138,31 @@
     .pie-chart h3 { display: none; }
 }
 
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) {
+    .report-dashboard h1 { font-size: 20px; margin-left: 5%; }
+    .report-dashboard div h2 { font-size: 20px; margin-left: 10%; }
+    .report-dashboard div ul { font-size: 15px; padding-left: 15%; }
+    .data-report { justify-content: space-between; }
+    .data-report div { width: 20%; height: 15rem; }
+    .download { position: relative; }
+    .charts { margin-top: 1%; margin-bottom: 1%; }
+    .charts div {height: 10%;}
+    .pie-chart h3 { display: none; }
+}
+
 @media screen and (max-width: 426px) and (orientation: portrait) {
+    .report-dashboard h1 { font-size: 20px; margin-left: 5%; margin-right: 5%; }
+    .report-dashboard div h2 { font-size: 20px; margin-left: 10%; }
+    .report-dashboard div ul { font-size: 15px; padding-left: 15%; }
+    .data-report { justify-content: space-between; flex-direction: column; }
+    .data-report div { width: 65%; height: 10rem; margin: auto; margin-bottom: 5%; }
+    .download { position: relative; }
+    .charts { margin-top: 1%; margin-bottom: 1%; flex-direction: column; }
+    .charts div {height: 10%; width: 90%; margin: auto; margin-bottom: 5%;}
+    .pie-chart h3 { display: none; }
+}
+
+@media screen and (max-width: 426px) and (orientation: landscape) {
     .report-dashboard h1 { font-size: 20px; margin-left: 5%; margin-right: 5%; }
     .report-dashboard div h2 { font-size: 20px; margin-left: 10%; }
     .report-dashboard div ul { font-size: 15px; padding-left: 15%; }

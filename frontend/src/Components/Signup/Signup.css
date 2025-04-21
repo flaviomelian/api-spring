@@ -46,6 +46,6 @@ input {
 }
 
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) { 
-    .header { height: 2vh; }
+    .header { height: 7vh; }
     .signup-header { margin-bottom: 8%; width: 13%;}
 }

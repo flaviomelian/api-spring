@@ -68,3 +68,7 @@
 @media screen and (max-width: 426px) {
     .header div { width: 25%; }
 }
+
+@media screen and (max-width: 426px) and (orientation: landscape) {
+    .header{ height: 9vh; }
+}

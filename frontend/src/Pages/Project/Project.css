@@ -97,6 +97,7 @@ td, th{
 
 @media screen and (max-width: 426px) and (orientation: portrait) {
     .header { padding-bottom: 5% !important; }
+    table { display: none; } 
     .project-list { display: flex; flex-direction: column; }
     .project-item span { display: flex; flex-direction: row; justify-content: space-between; width: 90%; }
     .project-item span p { margin: 1%; }
