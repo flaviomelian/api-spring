@@ -96,19 +96,29 @@
 }
 
 .download {
-    width: 100%;
+    position: relative;
+    left: 10%;
+    width: 80%;
     font-size: 20px;
     margin-bottom: 0%;
 }
 
-@media screen and (max-width: 1025px) and (min-width: 769px) {
+@media screen and (max-width: 1441px) and (min-width: 1026px) {
     .report-dashboard h1 { font-size: 25px; margin-left: 10%; }
     .report-dashboard div h2 { font-size: 20px; margin-left: 10%; }
     .report-dashboard div ul li { font-size: 15px; }
     .data-report div { height: 10rem; }
     .charts { width: 95%; }
     .pie-chart { width: 46%; }
-    .download { position: relative; width: 100%; }
+}
+
+@media screen and (max-width: 1025px) and (min-width: 769px) {
+    .report-dashboard h1 { font-size: 22px; margin-left: 10%; }
+    .report-dashboard div h2 { font-size: 20px; margin-left: 10%; }
+    .report-dashboard div ul li { font-size: 15px; }
+    .data-report div { height: 10rem; }
+    .charts { width: 95%; }
+    .pie-chart { width: 46%; }
 } 
 
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
@@ -117,7 +127,7 @@
     .report-dashboard div ul { font-size: 15px; padding-left: 15%; }
     .data-report { justify-content: space-between; }
     .data-report div { width: 20%; height: 15rem; }
-    .download { position: relative; width: 90%; left: 5%;}
+    .download { position: relative; }
     .charts { margin-top: 1%; margin-bottom: 1%; }
     .charts div {height: 10%;}
     .pie-chart h3 { display: none; }
@@ -129,7 +139,7 @@
     .report-dashboard div ul { font-size: 15px; padding-left: 15%; }
     .data-report { justify-content: space-between; flex-direction: column; }
     .data-report div { width: 65%; height: 10rem; margin: auto; margin-bottom: 5%; }
-    .download { position: relative; width: 90%; left: 5%; }
+    .download { position: relative; }
     .charts { margin-top: 1%; margin-bottom: 1%; flex-direction: column; }
     .charts div {height: 10%; width: 90%; margin: auto; margin-bottom: 5%;}
     .pie-chart h3 { display: none; }
