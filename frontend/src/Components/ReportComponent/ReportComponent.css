@@ -24,6 +24,11 @@
     font-size: 20px;
     width: 15%;
     height: 16rem;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.data-report div:hover {
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.4);
 }
 
 .data-report div ul {
