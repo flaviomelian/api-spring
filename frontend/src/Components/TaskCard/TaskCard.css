@@ -53,7 +53,8 @@
 }
 
 .arrow{
-    background-color: rgba(68, 160, 226, 0);;
+    position: relative;
+    background-color: rgba(68, 160, 226, 0);
 }
 
 @media screen and (max-width: 1440px) and (min-width: 1026px) {

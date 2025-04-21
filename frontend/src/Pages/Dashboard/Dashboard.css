@@ -18,7 +18,7 @@
 
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) {
     .clean{ font-size: 30px; }
-    .header{ height: 10vh; }
+    .header{ height: 5vh; }
     .dashboard{ height: 100vh; margin-top: 5%;}
 }
 
