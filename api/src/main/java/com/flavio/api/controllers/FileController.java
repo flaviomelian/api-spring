@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
-@RequestMapping("/api/Files")
+@RequestMapping("/api/files")
 public class FileController {
 
     private final FileService FileService;

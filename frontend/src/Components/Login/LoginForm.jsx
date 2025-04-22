@@ -2,6 +2,9 @@ import React from 'react'
 import './Login.css';
 
 const LoginForm = () => {
+    const handleLogin = () => {
+        //localStorage.setItem('usuario', )
+    }
   return (
     <div className='login-form'>
         <h1>Iniciar sesión</h1>

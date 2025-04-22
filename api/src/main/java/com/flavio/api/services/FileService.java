@@ -22,15 +22,15 @@ public class FileService {
         return repository.findById(id);
     }
 
-    public File saveFile(File File) {
-        return repository.save(File);
+    public File saveFile(File file) {
+        return repository.save(file);
     }
 
     public void deleteFile(Long id) {
         repository.deleteById(id);
     }
 
-    public void updateFile(File File) {
-        repository.save(File);
+    public void updateFile(File file) {
+        repository.save(file);
     }
 }
