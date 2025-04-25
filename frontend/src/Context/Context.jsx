@@ -3,6 +3,7 @@ import React, { createContext, useState, useContext } from 'react';
 const UserContext = createContext();
 const ProjectContext = createContext();
 const TaskContext = createContext();
+const SignupContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
@@ -44,4 +45,18 @@ export const TaskProvider = ({ children }) => {
 
 export const useTaskContext = () => {
     return useContext(TaskContext);
+};
+
+export const SignupProvider = ({ children }) => {
+    const [signupData, setSignupData] = useState(null);
+
+    return (
+        <SignupContext.Provider value={{ signupData, setSignupData }}>
+            {children}
+        </SignupContext.Provider>
+    );
+};
+
+export const useSignupContext = () => {
+    return useContext(SignupContext);
 };

@@ -15,6 +15,7 @@ import Code from '../Pages/Code/Code'
 import Report from '../Pages/Report/Report'
 import Signup from '../Pages/Signup/Signup'
 import Login from '../Pages/Login/Login'
+import Submit from '../Pages/Submit/Submit'
 
 const router = createBrowserRouter([
   {
@@ -80,6 +81,10 @@ const router = createBrowserRouter([
       {
         path: '/report',
         element: <Report />,
+      },
+      {
+        path: '/submit',
+        element: <Submit />,
       },
     ],
   },

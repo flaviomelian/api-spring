@@ -4,6 +4,11 @@
     align-items: center;
     justify-content: space-around;
     height: 100vh;
+    border-radius: 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #075186;
+    width: 30%;
+    margin: 0 auto;
 }
 
 .login-form-group {
@@ -22,13 +27,13 @@
 }
 
 .help a {
-    color: #0046c7;
+    color: #2e75f9;
     text-decoration: none;
     font-size: 16px;
     margin-top: 2%;
 }
 
 .help a:hover {
-    color: #02375e;
+    color: #002845;
     text-decoration: underline;
 }
