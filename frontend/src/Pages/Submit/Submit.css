@@ -1,0 +1,25 @@
+.submit-container{
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.submit-list{
+    font-size: 18px;
+}
+
+.submit-help{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.submit{
+    width: 30%;
+    font-size: 20px;
+}

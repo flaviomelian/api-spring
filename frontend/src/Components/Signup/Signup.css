@@ -11,41 +11,62 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 30%;
+    background-color: #075186;
+    margin: 0 auto;
+    padding: 1.3rem;
+    border-radius: 5%;
 }
 
 .signup-form-group {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     font-size: 10px;
-    margin-bottom: 3%;
+    gap: 1rem;
 }
 
-label {
-    font-size: 20px;
-    color: #fff;
-    margin-right: 10px;
+.signup-form-group h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.signup-form-group label{
+    font-size: 15px;
 }
 
 input {
     padding: 10px;
     font-size: 16px;
+    background: #064171;
+    width: 90%;
+}
+
+input::placeholder {
+    color: rgb(4, 111, 210);
+    opacity: 1; /* Para asegurarte de que no se vea transparente */
 }
 
 .signup-btn {
     font-size: 20px;
 }
 
-@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) { 
-    .signup-header { margin-bottom: 8%; width: 13%;}
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
+    .signup-header {
+        margin-bottom: 8%;
+        width: 13%;
+    }
 }
 
-@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) { 
-    .header { height: 7vh; }
-    .signup-header { margin-bottom: 8%; width: 13%;}
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) {
+    .header {
+        height: 7vh;
+    }
+
+    .signup-header {
+        margin-bottom: 8%;
+        width: 13%;
+    }
 }
