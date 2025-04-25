@@ -88,3 +88,7 @@ input:focus, select:focus {
     #taskForm button { width: 100%; font-size: 18px; margin: auto; }
     .input-group { flex-direction: column; }
 }
+
+@media screen and (max-width: 426px) and (orientation: landscape) {
+    .header { height: 9vh; }
+}
