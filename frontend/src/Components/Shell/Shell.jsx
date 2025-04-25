@@ -8,6 +8,27 @@ const Shell = () => {
   const [path, setPath] = useState(['home', 'user']);
   const inputRef = useRef(null);
   const [fileSystem, setFileSystem] = useState({});
+  const asciiBanner = `
+<pre class="ascii-banner">
+    .------------------------------------------.
+    |                                          |
+    |     //   ) )  // | |   __//_   //    / / |
+    |    //___/ /  //__| |  ( //  ) //___ / /  |
+    |   / __  (   / ___  |   \\     / ___   /   |
+    |  //    ) ) //    | (__//_)  //    / /    |
+    | //____/ / //     | |  /    //    / /     |
+    |                                          |
+    '------------------------------------------'
+                                
+    Bienvenido a tu terminal de proyectos!
+</pre>
+`;
+
+  useEffect(() => {
+    appendOutput(asciiBanner); // Mostrar el banner ASCII
+    handleGetAllProjects();    // Cargar los proyectos
+  }, []);
+
 
   useEffect(() => {
     handleGetAllProjects();

@@ -70,6 +70,13 @@
   flex-direction: row;
 }
 
+.ascii-banner {
+  color: #00ff00;
+  font-family: monospace;
+  white-space: pre;
+}
+
+
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
   .shell-path { font-size: 1.1rem; }
   .shell-dir { font-size: 1.1rem; }
