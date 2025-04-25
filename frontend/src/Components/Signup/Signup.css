@@ -54,19 +54,24 @@ input::placeholder {
 }
 
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
-    .signup-header {
-        margin-bottom: 8%;
-        width: 13%;
-    }
+    .signup-form {
+        width: 45%;
+    } 
 }
 
 @media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) {
-    .header {
-        height: 7vh;
-    }
+    .signup-form {
+        width: 45%;
+    } 
+}
 
-    .signup-header {
-        margin-bottom: 8%;
-        width: 13%;
-    }
+@media screen and (max-width: 426px) and (orientation: portrait) {
+    .signup-form { width: 70%; } 
+    .signup-form-group h1 { font-size: 35px; }
+}
+
+@media screen and (max-width: 426px) and (orientation: landscape) {
+    .signup-form { width: 50%; } 
+    .signup-form-group h1 { font-size: 25px; }
+    .signup-form-group button { font-size: 5px; }
 }

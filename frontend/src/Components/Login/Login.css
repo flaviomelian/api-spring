@@ -64,3 +64,24 @@
     color: #002845;
     text-decoration: underline;
 }
+
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: portrait) {
+    .login-form { width: 45%; } 
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) and (orientation: landscape) {
+    .header{ height: 7vh; }
+    .login-form { width: 40%; } 
+    .login-form-group h1 { font-size: 22px; gap: 0.01rem; }
+}
+
+@media screen and (max-width: 426px) and (orientation: portrait) {
+    .login-form { width: 70%; } 
+    .login-form-group h1 { font-size: 35px; }
+}
+
+@media screen and (max-width: 426px) and (orientation: landscape) {
+    .login-form { width: 50%; } 
+    .login-form-group h1 { font-size: 25px; }
+    .login-form-group button { font-size: 5px; }
+}
