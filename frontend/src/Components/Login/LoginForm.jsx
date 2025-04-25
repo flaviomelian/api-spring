@@ -7,7 +7,7 @@ const LoginForm = () => {
     }
     return (
         <div className='login-form'>
-            <form action="" method="post">
+            <form method="post">
                 <div className='login-form-group'>
                     <h1>Iniciar sesión</h1>
                     <input type="email" name="email" id="email" placeholder='correo electrónico' />

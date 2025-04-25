@@ -3,24 +3,32 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    background-color: #075186;
+    padding: 2rem;
+    border-radius: 5%;
+    gap: 1rem;
 }
 
 .dev-img-header{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .dev{
     margin-left: auto;
-    width: 5%;
+    width: 20%;
+    height: 100%;
     border-radius: 20%;
 }
 
 #title{
-    margin-left: 1%;
-    margin-right: auto;
+    font-size: 40px;
+    margin-top: 5%;
+    margin-right: 3%;
+    color: #ffffff;
 }
+
 
 .adjust{
     margin-top: 10vh;
@@ -40,9 +48,9 @@ label{
     font-size: 35px;
 }
 
-input{
+#userForm input {
     font-size: 30px;
-    width: 40%;
+    width: 95%;
     background-color: rgb(9, 85, 185);
     color: #ffffff;
     border-radius: 5% / 40%;
@@ -51,7 +59,7 @@ input{
 }
 
 #role{
-    width: 43%;
+    width: 100%;
     font-size: 20px;
     background-color: rgb(9, 85, 185);
     color: #ffffff;
