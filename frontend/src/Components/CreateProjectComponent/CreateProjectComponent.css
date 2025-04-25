@@ -3,6 +3,10 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    background-color: #075186;
+    padding: 2rem;
+    border-radius: 5%;
+    gap: 1rem;
 }
 
 .project-img-header{
@@ -13,7 +17,7 @@
 
 .project{
     margin-left: auto;
-    width: 5%;
+    width: 15%;
     border-radius: 15%;
 }
 
@@ -26,15 +30,6 @@
     margin-top: 10vh;
 }
 
-.input-group{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    justify-items: center;
-    justify-content: space-between;
-    margin: 3% 3% 3% 0%;
-    width: 100%;
-}
 
 label{
     font-size: 35px;

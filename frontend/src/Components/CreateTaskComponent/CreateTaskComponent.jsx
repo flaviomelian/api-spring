@@ -81,42 +81,35 @@ const CreateTask = () => {
     
     <div className='team-dashboard'>
         <Toaster />
-        <div className='task-img-header'>
-            <img className='task' src={taskimg}/>
-            <h1 id='title'>{isEditMode ? 'Edición de tarea' : 'Alta de tarea'}</h1>
-        </div>
+        
         <form id="taskForm">
-            <div className="input-group">
-                <label htmlFor="Taskname">Tarea:</label>
-                {isEditMode ?
-                    (<input type="text" id="Taskname" name="Taskname" maxLength="25" value={content} onChange={(event) => setContent(event.target.value)} required/>) : 
-                    (<input type="text" id="Taskname" name="Taskname" maxLength="25" onChange={(event) => setContent(event.target.value)} required/>)
-                }
+            <div className='task-img-header'>
+                <img className='task' src={taskimg}/>
+                <h1 id='title'>{isEditMode ? 'Edición de tarea' : 'Alta de tarea'}</h1>
             </div>
-            <div className="input-group">
-                <label htmlFor="initdate">Prioridad:</label>
+                {isEditMode ?
+                    (<input type="text" id="Taskname" name="Taskname" maxLength="25" placeholder='Tarea' value={content} onChange={(event) => setContent(event.target.value)} required/>) : 
+                    (<input type="text" id="Taskname" name="Taskname" maxLength="25" placeholder='Nombre de la tarea' onChange={(event) => setContent(event.target.value)} required/>)
+                }
                 {isEditMode ?
                     (<select id="role" name="priority" value={priority} onChange={(event) => setPriority(event.target.value)} required>
-                        <option value="SELECT">Seleccionar</option>
+                        <option value="SELECT">Prioridad</option>
                         <option value="ALTA">Alta</option>
                         <option value="MEDIANA">Mediana</option>
                         <option value="BAJA">Baja</option>
                     </select>) :
                     (<select id="role" name="priority" onChange={(event) => setPriority(event.target.value)} required>
-                        <option value="SELECT">Seleccionar</option>
+                        <option value="SELECT">Prioridad</option>
                         <option value="ALTA">Alta</option>
                         <option value="MEDIANA">Mediana</option>
                         <option value="BAJA">Baja</option>
                     </select>) 
                 }
-            </div>
-            <div className="input-group">
-                <label htmlFor="enterprise">Tiempo (en dias):</label>
+                <label htmlFor="time">Tiempo (en dias):</label>
                 {isEditMode ?
-                    (<input type="number" id="enterprise" name="enterprise" maxLength="20" value={time} onChange={(event) => setTime(event.target.value)} required/>) :
-                    (<input type="number" id="enterprise" name="enterprise" maxLength="20" onChange={(event) => setTime(event.target.value)} required/>)
+                    (<input type="number" id="time" name="time" maxLength="20" value={time} onChange={(event) => setTime(event.target.value)} required/>) :
+                    (<input type="number" id="time" name="time" maxLength="20" onChange={(event) => setTime(event.target.value)} required/>)
                 }
-            </div>
             <div className="input-group">
                 <label htmlFor="developers">Desarrollador/es asignado/s:</label>
                 <select

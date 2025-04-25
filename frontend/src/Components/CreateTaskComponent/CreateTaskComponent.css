@@ -3,17 +3,21 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    background-color: #075186;
+    padding: 2rem;
+    border-radius: 5%;
+    gap: 1rem;
 }
 
 .task-img-header{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .task{
     margin-left: auto;
-    width: 5%;
+    width: 15%;
     border-radius: 15%;
 }
 
@@ -26,22 +30,12 @@
     margin-top: 10vh;
 }
 
-.input-group{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    justify-items: center;
-    justify-content: space-between;
-    margin: 2% 2% 3% 0%;
-    width: 100%;
-}
-
 label{
     font-size: 35px;
 }
 
 #developers{
-    width: 43%;
+    width: 100%;
     font-size: 20px;
     background-color: rgb(9, 85, 185);
     color: #ffffff;
@@ -72,7 +66,25 @@ input:focus, select:focus {
 }
 
 @media screen and (max-width: 769px) and (min-width: 426px) and (orientation: portrait) {
-    .task { width: 8%; }
+    .task { width: 13%; }
     #taskForm { width: 75%; }
     #taskForm button { width: 60%; font-size: 18px; margin: auto; }
+    #Taskname { width: 95%; }
+    #time { width: 95%; }
+}
+
+@media screen and (max-width: 769px) and (min-width: 426px) and (orientation: landscape) {
+    .task { width: 13%; }
+    #taskForm { width: 75%; }
+    #taskForm button { width: 60%; font-size: 18px; margin: auto; }
+}
+
+@media screen and (max-width: 426px) and (orientation: portrait) {
+    .header{ height: 9vh; }
+    .task-img-header { margin-bottom: 5%; }
+    #title { font-size: 30px; }
+    #taskForm { width: 75%; }
+    .task{ width: 10%; }
+    #taskForm button { width: 100%; font-size: 18px; margin: auto; }
+    .input-group { flex-direction: column; }
 }

@@ -67,18 +67,19 @@ const CreateProject = () => {
     
     <div className='team-dashboard'>
         <Toaster />
-        <div className='project-img-header'>
-            <img className='project' src={projectimg}/>
-            <h1 id='title'>{isEditMode ? 'Edición de proyecto' : 'Alta de proyecto'}</h1>
-        </div>
         <form id="projectForm">
-            <div className="input-group">
-                <label htmlFor="Projectname">Proyecto:</label>
-                {isEditMode ?
-                    (<input type="text" id="Projectname" name="Projectname" maxLength="25" value={name} onChange={(event) => setName(event.target.value)} required/>) : 
-                    (<input type="text" id="Projectname" name="Projectname" maxLength="25" onChange={(event) => setName(event.target.value)} required/>)
-                }
+            <div className='project-img-header'>
+                <img className='project' src={projectimg}/>
+                <h1 id='title'>{isEditMode ? 'Edición de proyecto' : 'Alta de proyecto'}</h1>
             </div>
+            {isEditMode ?
+                (<input type="text" id="Projectname" name="Projectname" placeholder='Proyecto' maxLength="25" value={name} onChange={(event) => setName(event.target.value)} required/>) : 
+                (<input type="text" id="Projectname" name="Projectname" placeholder='Proyecto' maxLength="25" onChange={(event) => setName(event.target.value)} required/>)
+            }
+            {isEditMode ?
+                (<input type="text" id="enterprise" name="enterprise" placeholder='Empresa' maxLength="20" value={enterprise} onChange={(event) => setEnterprise(event.target.value)} required/>) :
+                (<input type="text" id="enterprise" name="enterprise" placeholder='Empresa' maxLength="20" onChange={(event) => setEnterprise(event.target.value)} required/>)
+            }    
             <div className="input-group">
                 <label htmlFor="initdate">Fecha de inicio:</label>
                 {isEditMode ?
@@ -86,13 +87,7 @@ const CreateProject = () => {
                     (<input type="date" id="initdate" name="initdate" onChange={(event) => setInitDate(formatDate(event.target.value))} required/>)
                 }
             </div>
-            <div className="input-group">
-                <label htmlFor="enterprise">Empresa:</label>
-                {isEditMode ?
-                    (<input type="text" id="enterprise" name="enterprise" maxLength="20" value={enterprise} onChange={(event) => setEnterprise(event.target.value)} required/>) :
-                    (<input type="text" id="enterprise" name="enterprise" maxLength="20" onChange={(event) => setEnterprise(event.target.value)} required/>)
-                }
-            </div>
+            
             <div className="input-group">
                 <label htmlFor="deadline">Deadline:</label>
                 {isEditMode ?

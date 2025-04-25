@@ -90,6 +90,7 @@ input:focus, select:focus {
 }
 
 @media screen and (max-width: 426px) and (orientation: portrait) {
-    .dev { width: 10%; }
-    #userForm { width: 90%; }
+    .dev { width: 20%; height: 80%; margin-right: 15%; }
+    #userForm { width: 70%; }
+    #title { font-size: 30px; margin-top: 0; margin-left: 20%; }
 }
