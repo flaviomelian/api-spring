@@ -57,16 +57,6 @@ mvn clean install
 mvn spring-boot:run
 La aplicación estará disponible en http://localhost:8080.
 ```
-## 📬 Endpoints Principales
-GET /api/emails/: Obtiene todos los correos.
-
-GET /api/emails/{id}: Obtiene un correo por ID.
-
-POST /api/emails/: Crea un nuevo correo.
-
-PUT /api/emails/{id}: Actualiza un correo existente.
-
-DELETE /api/emails/{id}: Elimina un correo.
 
 ## 🤝 Contribuciones
 ¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto:
