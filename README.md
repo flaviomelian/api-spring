@@ -29,8 +29,8 @@ projects-management/
 <br>│ ├── models/ 
 <br>│ ├── repositories/ 
 <br>│ └── services/ 
-<br>└── resources/ 
-<br>└── application.properties 
+<br>├── resources/ 
+<br>├── application.properties 
 <br>├── pom.xml
 <br>└── README.md
 
