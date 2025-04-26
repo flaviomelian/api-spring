@@ -30,7 +30,9 @@ projects-management/
 <br>│ ├── repositories/ 
 <br>│ └── services/ 
 <br>└── resources/ 
-<br>└── application.properties ├── pom.xml └── README.md
+<br>└── application.properties 
+<br>├── pom.xml
+<br>└── README.md
 
 ## 🔧 Configuración y Ejecución
 
