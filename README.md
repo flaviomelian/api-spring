@@ -47,14 +47,15 @@ Asegúrate de tener una base de datos MySQL en funcionamiento y actualiza el arc
 spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
-Construir y ejecutar la aplicación:
+
+###Construir y ejecutar la aplicación:
 
 ```bash
 mvn clean install
 mvn spring-boot:run
 La aplicación estará disponible en http://localhost:8080.
 ```
-📬 Endpoints Principales
+## 📬 Endpoints Principales
 GET /api/emails/: Obtiene todos los correos.
 
 GET /api/emails/{id}: Obtiene un correo por ID.
@@ -65,7 +66,7 @@ PUT /api/emails/{id}: Actualiza un correo existente.
 
 DELETE /api/emails/{id}: Elimina un correo.
 
-🤝 Contribuciones
+## 🤝 Contribuciones
 ¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto:
 
 Haz un fork del repositorio.
@@ -78,8 +79,8 @@ Sube tus cambios: git push origin feature/nueva-funcionalidad.
 
 Abre un Pull Request.
 
-📄 Licencia
+## 📄 Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más información.
 
-👨‍💻 Autor
+## 👨‍💻 Autor
 Desarrollado por Flavio Melián, estudiante del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma en IES El Rincón.
