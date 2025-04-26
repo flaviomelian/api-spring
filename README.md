@@ -22,19 +22,15 @@
 
 projects-management/ 
 <br>├── src/
-<br>... ├── main/ 
-<br>....├── java/ 
-<br>....│ └── com.flavio.api/ 
-<br>....│ ├── controllers/ 
-<br>....│ ├── models/ 
-<br>....│ ├── repositories/ 
-<br>....│ └── services/ 
-<br>....└── resources/ 
-<br>....└── application.properties ├── pom.xml └── README.md
-
-bash
-Copiar
-Editar
+<br>├── main/ 
+<br>├── java/ 
+<br>│ └── com.flavio.api/ 
+<br>│ ├── controllers/ 
+<br>│ ├── models/ 
+<br>│ ├── repositories/ 
+<br>│ └── services/ 
+<br>└── resources/ 
+<br>└── application.properties ├── pom.xml └── README.md
 
 ## 🔧 Configuración y Ejecución
 
@@ -48,20 +44,16 @@ Configurar la base de datos:
 Asegúrate de tener una base de datos MySQL en funcionamiento y actualiza el archivo application.properties con tus credenciales:
 
 properties
-Copiar
-Editar
 spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
 Construir y ejecutar la aplicación:
 
-bash
-Copiar
-Editar
+```bash
 mvn clean install
 mvn spring-boot:run
 La aplicación estará disponible en http://localhost:8080.
-
+```
 📬 Endpoints Principales
 GET /api/emails/: Obtiene todos los correos.
 
