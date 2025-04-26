@@ -47,7 +47,7 @@ Asegúrate de tener una base de datos MySQL en funcionamiento y actualiza el arc
 
 ### properties<br>
 spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos
-spring.datasource.username=tu_usuario
+<br>spring.datasource.username=tu_usuario
 spring.datasource.password=tu_contraseña
 
 ### Construir y ejecutar la aplicación:
