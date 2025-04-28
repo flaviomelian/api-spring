@@ -10,19 +10,26 @@ const Shell = () => {
   const [fileSystem, setFileSystem] = useState({});
   const asciiBanner = `
 <pre class="ascii-banner">
-    .------------------------------------------.
-    |       ___      ____                      |
-    |     //   ) )  // | |   __//_   //    / / |
-    |    //___/ /  //__| |  ( //  ) //___ / /  |
-    |   / __  (   / ___  |   \\     / ___   /   |
-    |  //    ) ) //    | (__//_)  //    / /    |
-    | //____/ / //     | |  /    //    / /     |
-    |                                          |
-    '------------------------------------------'
+    .-------------------------------------------.
+    |       ___      ____                       |
+    |     //   ) )  // | |    __//_   //    / / |
+    |    //___/ /  //__| |   ( //  ) //___ / /  |
+    |   / __  (   / ___  |    \\     // ___/ /   |
+    |  //    ) ) //    | |(__//_)  //    / /    |
+    | //____/ / //     | |  //    //    / /     |
+    |                                           |
+    '-------------------------------------------'
                                 
     Bienvenido a tu terminal de proyectos!
 </pre>
 `;
+const shellContainerRef = useRef(null);
+
+useEffect(() => {
+  if (shellContainerRef.current) {
+    shellContainerRef.current.scrollTop = shellContainerRef.current.scrollHeight;
+  }
+}, [history]);
 
   useEffect(() => {
     appendOutput(asciiBanner); // Mostrar el banner ASCII
@@ -191,12 +198,9 @@ const Shell = () => {
   };
 
   return (
-    <div className="shell-container" onClick={() => inputRef.current.focus()}>
+    <div className="shell-container" ref={shellContainerRef} onClick={() => inputRef.current.focus()}>
       {history.map((entry, index) => (
         <div key={index}>
-          <div className="shell-line">
-            <span className="shell-path">user@bash</span>:<span className="shell-dir">~/{path.join('/')}</span>$ {entry.command}
-          </div>
           <pre dangerouslySetInnerHTML={{ __html: `<b>${entry.output}</b>`} } />
         </div>
       ))}
