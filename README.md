@@ -58,7 +58,7 @@ mvn clean install
 mvn spring-boot:run
 ```
 El backend estará disponible en http://localhost:8080
-Frontend:
+<br>Frontend:
 ```bash
 cd frontend/src
 npm run dev
