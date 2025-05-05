@@ -52,11 +52,18 @@ spring.datasource.url=jdbc:mysql://localhost:3306/tu_base_de_datos
 
 ### Construir y ejecutar la aplicación:
 
+<u>Backend:</u>
 ```bash
 mvn clean install
 mvn spring-boot:run
-La aplicación estará disponible en http://localhost:8080.
 ```
+El backend estará disponible en http://localhost:8080
+<br><u>Frontend:</u>
+```bash
+cd frontend/src
+npm run dev
+```
+El frontend estará disponible en http://localhost:5173
 
 ## 🤝 Contribuciones
 ¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto:
