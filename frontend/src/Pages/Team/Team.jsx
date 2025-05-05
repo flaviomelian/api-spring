@@ -65,9 +65,9 @@ const Team = () => {
                             <td>{user.username}</td>
                             <td>{user.name}</td>
                             <td>{user.surnames}</td>
-                            <td>{user.role}</td>
+                            <td>{user.role ? user.role : "Por asignar"}</td>
                             <td>{user.email}</td>
-                            <td>{user.salary} €</td>
+                            <td>{user.salary ? user.salary + " €" : "Por asignar"}</td>
                             <div className='tools'>
                                 <td>
                                     <button className="btn warning" onClick={() => navigate("../create-dev", { state: { user } })}>Editar</button>

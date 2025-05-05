@@ -4,7 +4,7 @@ import './Submit.css';
 
 const Submit = () => {
     const location = useLocation();
-    const { name, surnames, phone, email } = location.state || {}; //Obtenemos los datos del estado
+    const { username, name, surnames, phone, email } = location.state || {}; //Obtenemos los datos del estado
     useEffect(() => {
         fetch('http://localhost:8080/api/users/signup', {
             method: 'POST',
@@ -23,6 +23,7 @@ const Submit = () => {
             <h2>Usuario registrado correctamente</h2>
             <h3>Datos registrados:</h3>
             <ul className="submit-list">
+                <li>Usuario: {username}</li>
                 <li>Nombre: {name}</li>
                 <li>Apellido: {surnames}</li>
                 <li>Teléfono: {phone}</li>
