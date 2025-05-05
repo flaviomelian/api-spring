@@ -12,6 +12,7 @@
 
 ## 🛠️ Tecnologías Utilizadas
 
+- **Frontend**: React
 - **Backend**: Java 17, Spring Boot, Spring Data JPA
 - **Base de Datos**: MySQL
 - **ORM**: Hibernate
