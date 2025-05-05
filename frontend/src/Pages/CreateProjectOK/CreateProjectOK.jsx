@@ -42,7 +42,7 @@ const CreateProjectOK = () => {
           initdate: formattedInitDate,
           deadline: formattedDeadline
       };
-      await updateProject(dataToSend);
+      await updateProject(projectData.id, dataToSend);
       navigate('/projects'); 
     } catch (error) {
       console.error(error);

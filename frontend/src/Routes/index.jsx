@@ -11,6 +11,7 @@ import CreateTask from '../Pages/CreateTask/CreateTask'
 import CreateTaskOK from '../Pages/CreateTaskOK/CreateTaskOK'
 import Kanban from '../Pages/Kanban/Kanban'
 import Home from '../Pages/Home/Home'
+import HomeToken from '../Pages/HomeToken/HomeToken'
 import Code from '../Pages/Code/Code'
 import Report from '../Pages/Report/Report'
 import Signup from '../Pages/Signup/Signup'
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Home />,
+        element: <HomeToken />,
       },
       {
         path: '/login',

@@ -34,7 +34,11 @@ export const deleteProject = async (id) => {
 }
 
 export const updateProject = async (id, dataProject) => {
-    const {data} = await api.put(`projects/${id}`, dataProject)
+    const { data } = await api.put(`projects/${id}`, dataProject, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
     return data
 }
 

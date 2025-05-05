@@ -13,39 +13,40 @@ import java.util.Optional;
 @RequestMapping("/api/projects")
 public class ProjectController {
 
-    private final ProjectService ProjectService;
+    private final ProjectService projectService;
 
-    public ProjectController(ProjectService ProjectService) {
-        this.ProjectService = ProjectService;
+    public ProjectController(ProjectService projectService) {
+        this.projectService = projectService;
     }
 
     @GetMapping("/")
     public List<Project> getAllProjects() {
-        return ProjectService.getAllProjects();
+        return projectService.getAllProjects();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Project>> getProjectById(@PathVariable Long id) {
-        Optional<Project> Project = ProjectService.getProjectById(id);
-        return Project.isPresent() ? ResponseEntity.ok(Project) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(Project);
+        Optional<Project> project = projectService.getProjectById(id);
+        return project.isPresent() ? ResponseEntity.ok(project) : ResponseEntity.status(HttpStatus.NOT_FOUND).body(project);
     }
 
     @PostMapping("/")
-    public ResponseEntity<Project> createProject(@RequestBody Project Project) {
-        Project savedProject = ProjectService.saveProject(Project);
+    public ResponseEntity<Project> createProject(@RequestBody Project project) {
+        Project savedProject = projectService.saveProject(project);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedProject);
     }
 
     @PutMapping("/{id}")
-    public void updateProject(@PathVariable Long id, @RequestBody Project Project) {
-        if (ProjectService.getProjectById(id).isPresent())
-            ProjectService.updateProject(Project);
+    public void updateProject(@PathVariable Long id, @RequestBody Project project) {
+        if (projectService.getProjectById(id).isPresent())
+            projectService.updateProject(project);
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteProject(@PathVariable Long id) {
-        if (ProjectService.getProjectById(id).isPresent()) {
-            ProjectService.deleteProject(id);
+        if (projectService.getProjectById(id).isPresent()) {
+            projectService.deleteProject(id);
             return ResponseEntity.ok("Tarea eliminada correctamente.");
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Tarea no encontrada.");

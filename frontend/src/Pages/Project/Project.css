@@ -36,23 +36,23 @@ td, th{
 
 .operations-project{
     position: relative;
-    left: 15%;
+    left: 14%;
     width: 100px;
 }
 
 .warning{
     background-color: #b5bc02;
-    color: #f6ff00;
+    color: #f7fd5f;
 }
 
 .danger{
     background-color: #990000;
-    color: #e80000;
+    color: #ff5b5b;
 }
 
 .success{
     background-color: #2e9900;
-    color: #1fe800;
+    color: #6ffe59;
 }
 
 .clean-project{
@@ -63,7 +63,6 @@ td, th{
 }
 
 .btn{
-    color: #e2e1e1;
     font-size: 20px;
 }
 

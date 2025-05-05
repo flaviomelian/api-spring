@@ -27,6 +27,7 @@
     filter: brightness(85%);
     box-shadow: 0.5px 0.5px 4px 4px rgb(0, 247, 255);
     transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .house{

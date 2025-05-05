@@ -43,7 +43,7 @@ const CreateTaskOK = () => {
       )}
       <div className='confirmation-buttons'>
         <button className="btn sucess" onClick={isEditMode ? handleUpdateTask : handleCreateTask}>Confirmar</button>
-        <button className="btn danger" onClick={() => navigate('/projects')}>Cancelar</button>
+        <button className="btn danger" onClick={() => navigate('/kanban')}>Cancelar</button>
       </div>
       
     </div>
