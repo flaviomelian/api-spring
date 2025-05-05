@@ -16,6 +16,7 @@ public class User {
     private String surnames;
     private double salary;
     private String email;
+    private String password;
     private Role role;
     @ManyToMany(mappedBy = "users")
     private List<Task> tasks;
@@ -94,6 +95,24 @@ public class User {
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
+
+    public Long getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Long user_id) {
+        this.user_id = user_id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    
 }
 
 enum Role {

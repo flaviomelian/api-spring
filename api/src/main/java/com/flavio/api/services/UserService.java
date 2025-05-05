@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.flavio.api.models.User;
 import com.flavio.api.repositories.UserRepository;
@@ -44,4 +45,18 @@ public class UserService {
         repository.save(updatedUser);
        }
     }
+
+    public User login(String username, String password) {
+        Optional<User> user = repository.findByUsername(username);
+        if (user.isPresent()) {
+            User foundUser = user.get();
+            if (foundUser.getPassword().equals(password)) return foundUser;
+        }    
+        return null; 
+    }
+
+    public User signup(@RequestBody User user) {
+        return repository.save(user);
+    }
+
 }

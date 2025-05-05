@@ -5,9 +5,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.flavio.api.models.User;
 import com.flavio.api.services.UserService;
-import com.flavio.api.repositories.UserRepository;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -65,6 +67,26 @@ public class UserController {
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario no encontrado.");
         }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody User user) {
+        String username = user.getUsername();
+        String password = user.getPassword();
+
+        User loggedInUser = this.userService.login(username, password);
+
+        if (loggedInUser != null) return ResponseEntity.ok(loggedInUser);
+        else return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+    }
+
+    @PostMapping("/signup")
+    public ResponseEntity<User> signup(@RequestBody User user) {
+
+        User loggedInUser = this.userService.signup(user);
+
+        if (loggedInUser != null) return ResponseEntity.ok(loggedInUser);
+        else return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
     }
 
 }

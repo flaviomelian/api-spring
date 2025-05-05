@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import './Submit.css';
 
 const Submit = () => {
     const location = useLocation();
-    const { name, surnames, phone, email } = location.state || {}; // Obtenemos los datos del estado
+    const { name, surnames, phone, email } = location.state || {}; //Obtenemos los datos del estado
+    useEffect(() => {
+        fetch('http://localhost:8080/api/users/signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(location.state),
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+    }, [location.state]); // Dependencia para que se ejecute solo una vez al cargar el componente
 
     return (
         <div className="submit-container">
