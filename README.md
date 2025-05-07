@@ -66,6 +66,8 @@ npm run dev
 ```
 El frontend estará disponible en http://localhost:5173
 
+Para acceder a la documentación de la api, una vez levantado Spring, basta con acceder a http://localhost:8080/swagger-ui/index.html
+
 ## 🤝 Contribuciones
 ¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto:
 
