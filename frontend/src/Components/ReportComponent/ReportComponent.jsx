@@ -40,11 +40,11 @@ const ReportComponent = () => {
         element.style.overflow = 'visible';
 
         const button = document.querySelector('.download');
-        button.style.display = 'none';  // Oculta el botón de descarga mientras se genera el PDF
+        button.style.visibility = 'hidden';  // Oculta el botón de descarga mientras se genera el PDF
 
         setTimeout(async () => {
             const canvas = await html2canvas(element, { scale: 2, useCORS: true });
-            button.style.display = 'flex';  // Muestra nuevamente el botón de descarga
+            button.style.visibility = 'visible';  // Muestra nuevamente el botón de descarga
 
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF('p', 'pt', 'a4');
