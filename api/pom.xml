@@ -30,12 +30,6 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<!-- Vaadin -->
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin</artifactId>
-			<version>24.7.1</version>
-		</dependency>
 
 		<!-- Spring Boot Starter Web -->
 		<dependency>
