@@ -3,6 +3,20 @@ import { getAllProjects } from '../../services/services';
 import './GridProjects.css';
 import { useNavigate } from 'react-router-dom';
 
+/**
+ * GridProjects
+ * 
+ * Este componente muestra un grid de tarjetas con proyectos.
+ * 
+ * 🔁 Llama a `getAllProjects()` al montarse y lista los proyectos obtenidos.
+ * 🧭 Usa `useNavigate()` de React Router para ir a la vista de detalle del proyecto.
+ * 
+ * - Muestra nombre y fecha límite del proyecto.
+ * - Al hacer click en una tarjeta, redirige a `/kanban` con el estado del proyecto.
+ * 
+ * @component
+ */
+
 const GridProjects = () => {
   const [projects, setProjects] = useState([]);
   const navigate = useNavigate()

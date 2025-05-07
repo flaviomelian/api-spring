@@ -1,4 +1,19 @@
-import React from 'react'
+/**
+ * Componente `ReportComponent` para generar un informe visual de estado del proyecto y exportarlo como PDF.
+ * 
+ * Este componente muestra un informe visual con gráficos de distribución y estado de tareas de un proyecto.
+ * Los datos se toman desde el almacenamiento local (`localStorage`), y se genera un informe con gráficos tipo tarta
+ * (Pie Chart) y de barras (Bar Chart) usando la librería `chart.js`. Además, proporciona la funcionalidad de exportar
+ * el informe como un archivo PDF mediante la librería `jsPDF` y `html2canvas`.
+ * 
+ * @component
+ * @example
+ * // Ejemplo de uso
+ * <ReportComponent />
+ * 
+ * @returns {React.Element} El componente `ReportComponent` que renderiza un informe visual y permite exportarlo como PDF.
+ */
+import React from 'react';
 import './ReportComponent.css';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -8,40 +23,37 @@ ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarEle
 
 const ReportComponent = () => {
     
+    // Recupera los datos del proyecto y las tareas del localStorage
     const project = JSON.parse(localStorage.getItem('project'));
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     const progressTasks = JSON.parse(localStorage.getItem('progressTasks'));
     const revisionTasks = JSON.parse(localStorage.getItem('revisionTasks'));
     const doneTasks = JSON.parse(localStorage.getItem('doneTasks'));
 
+    /**
+     * Función para exportar el informe como un archivo PDF.
+     * Utiliza `html2canvas` para capturar la imagen del reporte y `jsPDF` para generar el archivo PDF.
+     */
     const exportPDF = async () => {
         const element = document.querySelector('.report-dashboard');
-
-        element.style.backgroundColor = '#077ccf';
+        element.style.backgroundColor = '#077ccf';  // Cambia el color de fondo
         element.style.overflow = 'visible';
-    
+
         const button = document.querySelector('.download');
-        button.style.display = 'none';
-    
+        button.style.display = 'none';  // Oculta el botón de descarga mientras se genera el PDF
+
         setTimeout(async () => {
-            const canvas = await html2canvas(element, {
-                scale: 2,
-                useCORS: true
-            });
-    
-            // Restaurar estilos originales
-            button.style.display = 'flex';
-            button.style.justifyContent = 'center';
-    
+            const canvas = await html2canvas(element, { scale: 2, useCORS: true });
+            button.style.display = 'flex';  // Muestra nuevamente el botón de descarga
+
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF('p', 'pt', 'a4');
             pdf.addImage(imgData, 'PNG', 20, 20, 555, 0);
             pdf.save(`informe-${project.name}.pdf`);
         }, 0);
     };
-    
-    
-    // Cantidades por estado
+
+    // Cálculos de las tareas por estado
     const taskCounts = {
         "Por hacer": tasks.length,
         "En progreso": progressTasks.length,
@@ -49,89 +61,58 @@ const ReportComponent = () => {
         "Hechas": doneTasks.length
     };
 
+    // Configuración para los gráficos de texto (tamaño, color, etc.)
     const chartTextOptions = {
         plugins: {
             legend: {
                 labels: {
-                    color: '#042b51', // Color del texto de la leyenda
-                    font: {
-                        size: 24, // Tamaño de fuente de la leyenda
-                        family: 'Arial'
-                    }
+                    color: '#042b51',
+                    font: { size: 24, family: 'Arial' }
                 }
             },
             tooltip: {
-                bodyFont: {
-                    size: 14,
-                    family: 'Arial'
-                },
-                titleFont: {
-                    size: 16,
-                    family: 'Arial'
-                }
+                bodyFont: { size: 14, family: 'Arial' },
+                titleFont: { size: 16, family: 'Arial' }
             }
         },
         scales: {
             x: {
-                ticks: {
-                    color: '#444', // Color del eje X
-                    font: {
-                        size: 13,
-                        family: 'Arial'
-                    }
-                },
-                grid: {
-                    color: '#ddd'
-                }
+                ticks: { color: '#444', font: { size: 13, family: 'Arial' } },
+                grid: { color: '#ddd' }
             },
             y: {
-                ticks: {
-                    color: '#444', // Color del eje Y
-                    font: {
-                        size: 13,
-                        family: 'Arial'
-                    }
-                },
-                grid: {
-                    color: '#ddd'
-                }
+                ticks: { color: '#444', font: { size: 13, family: 'Arial' } },
+                grid: { color: '#ddd' }
             }
         }
-    };    
+    };
 
-    // Datos para el gráfico de tarta
+    // Datos para el gráfico de tarta (Pie Chart)
     const pieData = {
         labels: Object.keys(taskCounts),
-        datasets: [
-            {
-                label: 'Tareas por estado',
-                data: Object.values(taskCounts),
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-                borderColor: '#fff',
-                borderWidth: 1,
-            }
-        ],
+        datasets: [{
+            label: 'Tareas por estado',
+            data: Object.values(taskCounts),
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+            borderColor: '#fff',
+            borderWidth: 1
+        }]
     };
 
     const pieOptions = {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: {
-            ...chartTextOptions.plugins
-        }
+        plugins: { ...chartTextOptions.plugins }
     };
-    
 
-    // Datos para el gráfico de barras
+    // Datos para el gráfico de barras (Bar Chart)
     const barData = {
         labels: Object.keys(taskCounts),
-        datasets: [
-            {
-                label: 'Estado de las tareas',
-                data: Object.values(taskCounts),
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-            }
-        ]
+        datasets: [{
+            label: 'Estado de las tareas',
+            data: Object.values(taskCounts),
+            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0']
+        }]
     };
 
     const barOptions = {
@@ -139,13 +120,13 @@ const ReportComponent = () => {
         maintainAspectRatio: false,
         ...chartTextOptions
     };
-    
-    
-    // Si no tenemos un proyecto, mostramos un mensaje de error
+
+    // Si no se encuentra el proyecto, mostrar mensaje de error
     if (!project) {
         return <div>No se encontró el proyecto.</div>;
     }
 
+    // Renderiza el informe con gráficos y tareas organizadas por estado
     return (
         <div className='report-dashboard'>
             <h1>Informe de estado del proyecto {project.name} a {new Date().toLocaleString()}</h1>
@@ -202,7 +183,7 @@ const ReportComponent = () => {
             </div>
             <button className='btn btn-primary clean download' onClick={exportPDF}>Descargar informe del proyecto</button>
         </div>
-    )
-}
+    );
+};
 
-export default ReportComponent
+export default ReportComponent;
