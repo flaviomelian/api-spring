@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import './Kanban.css';
 import { deleteTask, getAllTasksByProject, updateStatusTask } from '../../services/services';
-import TaskCard from '../../Components/TaskCard/TaskCard';  // Importamos el componente de TaskCard
+import TaskCard from '../../Components/TaskCard/TaskCard';
 
 const Kanban = () => {
     const location = useLocation();
