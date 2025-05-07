@@ -7,7 +7,7 @@
  * 
  * @component
  * @example
- * // Ejemplo de uso
+ * Ejemplo de uso
  * <SignupForm />
  * 
  * @returns {React.Element} El componente `SignupForm` que permite a los usuarios registrarse en la aplicación.

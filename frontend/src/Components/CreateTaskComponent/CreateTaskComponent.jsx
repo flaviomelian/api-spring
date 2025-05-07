@@ -11,7 +11,7 @@
  * 
  * @component
  * @example
- * // Ejemplo de uso para crear una tarea
+ * Ejemplo de uso para crear una tarea
  * <CreateTask />
  * 
  * @returns {React.Element} El componente `CreateTask` que renderiza un formulario para crear o editar tareas dentro de un proyecto.

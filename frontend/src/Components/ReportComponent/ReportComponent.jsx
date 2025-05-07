@@ -8,7 +8,7 @@
  * 
  * @component
  * @example
- * // Ejemplo de uso
+ * Ejemplo de uso
  * <ReportComponent />
  * 
  * @returns {React.Element} El componente `ReportComponent` que renderiza un informe visual y permite exportarlo como PDF.

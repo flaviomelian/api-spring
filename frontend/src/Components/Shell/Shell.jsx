@@ -9,7 +9,7 @@
  * 
  * @component
  * @example
- * // Ejemplo de uso
+ * Ejemplo de uso
  * <Shell />
  * 
  * @returns {React.Element} El componente `Shell` que simula una terminal interactiva para gestionar proyectos y archivos.

@@ -10,7 +10,7 @@
  * 
  * @component
  * @example
- * // Ejemplo de uso para crear un proyecto
+ * Ejemplo de uso para crear un proyecto
  * <CreateProject />
  * 
  * @returns {React.Element} El componente `CreateProject` que renderiza un formulario para crear o editar proyectos.

@@ -7,7 +7,7 @@
  * 
  * @component
  * @example
- * // Ejemplo de uso para crear un nuevo desarrollador
+ * Ejemplo de uso para crear un nuevo desarrollador
  * <CreateDev />
  * 
  * @returns {React.Element} El componente `CreateDev` que renderiza un formulario para crear o editar desarrolladores.
