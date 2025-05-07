@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTaskContext } from '../../Context/Context'; // Importamos el contexto
 import { createTask, updateTask } from '../../services/services';
@@ -10,6 +10,18 @@ const CreateTaskOK = () => {
   const { taskData } = useTaskContext();
   const location = useLocation();
   const isEditMode = location.state;
+  const [ devs, setDevs ] = useState('');
+
+  useEffect(() => {
+    if (taskData) {
+      let devArray = []
+      for (let dev of taskData.users) {
+        devArray.push(dev)
+        devArray.push(' ')
+      }
+      setDevs(devArray);
+    }
+  }, [taskData]);
 
   const handleCreateTask = async () => {
     try {
@@ -38,7 +50,8 @@ const CreateTaskOK = () => {
           <p><b>Tarea:</b> {taskData.content}</p>
           <p><b>Prioridad:</b> {taskData.priority}</p>
           <p><b>Dias estimados:</b> {taskData.time}</p>
-          <p><b>Proyecto:</b> {taskData.project.name}</p>
+          <p><b>Proyecto:</b> {taskData.projectName}</p>
+          <p><b>Desarrolladores asignados:</b> {devs}</p>
         </div>
       )}
       <div className='confirmation-buttons'>

@@ -35,6 +35,8 @@ const CreateTask = () => {
     const [priority, setPriority] = useState('');
     const [time, setTime] = useState('');
     const [developers, setDevelopers] = useState([]);
+    const [assignedDevelopers, setAssignedDevelopers] = useState([]);
+    const [idDevelopers, setIdDevelopers] = useState([]);
     const [isEditMode, setIsEditMode] = useState(false);  
 
     /**
@@ -49,7 +51,7 @@ const CreateTask = () => {
      */
     useEffect(() => {
       handleGetDevelopersInformation();
-    }, [developers]);
+    }, []);
 
     /**
      * Función para obtener la información de los desarrolladores disponibles.
@@ -68,7 +70,6 @@ const CreateTask = () => {
     const handleGetTaskInformation = async () => {
         const result = await getAllTasksByProject(project.id);
         console.log(result);
-        setDevelopers(result);
     }
 
     /**
@@ -100,13 +101,16 @@ const CreateTask = () => {
     
         try {
             const data = {
-                id: task ? task.id : null, // Usamos el ID de la tarea si estamos editando
+                id: task ? task.id : null,
                 content,
                 priority,
                 time,
-                project,
+                projectId: project.id,
+                projectName: project.name,
+                users: assignedDevelopers,
+                idDevelopers: idDevelopers,
                 status: task ? task.status : 0
-            };
+            };             
             console.log(data);
             setTaskData(data);
             isEditMode ? navigate('/create-task-ok', { state: true }) : navigate('/create-task-ok', { state: false });
@@ -148,25 +152,28 @@ const CreateTask = () => {
                     (<input type="number" id="time" name="time" maxLength="20" value={time} onChange={(event) => setTime(event.target.value)} required/>) : 
                     (<input type="number" id="time" name="time" maxLength="20" onChange={(event) => setTime(event.target.value)} required/>)
                 }
-                <div className="input-group">
+                <div className="assigned-developers">
                     <label htmlFor="developers">Desarrollador/es asignado/s:</label>
-                    <select
-                        id="developers"
-                        name="developers"
-                        multiple
-                        value={developers} // <-- Array de IDs
-                        onChange={(e) => {
-                            const selectedOptions = Array.from(e.target.selectedOptions).map(option => option.value);
-                            setDevelopers(selectedOptions);
-                        }}
-                        required
-                    >
+                    
                         {developers.map((dev) => (
-                            <option key={dev.id} value={dev.id}>
-                                {dev.name}
-                            </option>
+                            <div className="checkbox-dev"key={dev.id}>
+                                <input
+                                    type="checkbox"
+                                    value={dev.id}
+                                    onChange={(event) => {
+                                        const isChecked = event.target.checked;
+                                        setAssignedDevelopers((prev) =>
+                                        isChecked ? [...prev, dev.username] : prev.filter((username) => username !== dev.username)
+                                        );
+                                        setIdDevelopers((prev) =>
+                                        isChecked ? [...prev, dev.id] : prev.filter((id) => id !== dev.id)
+                                        );
+                                    }}
+                                    checked={idDevelopers.includes(dev.id)}
+                                    />
+                                {dev.username}
+                            </div>
                         ))}
-                    </select>
                 </div>
 
                 {isEditMode ? 
@@ -181,7 +188,7 @@ const CreateTask = () => {
                 }
             </form>
         </div>
-    );
+    ); // esta es linea 185... ???????
 }
 
 export default CreateTask;

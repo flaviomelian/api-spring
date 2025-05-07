@@ -65,6 +65,20 @@ input:focus, select:focus {
     color: #f6ff00;
 }
 
+.assgned-developers{
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-dev {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox-dev input{
+    width: 15%;
+}
+
 @media screen and (max-width: 769px) and (min-width: 426px) and (orientation: portrait) {
     .task { width: 13%; }
     #taskForm { width: 75%; }

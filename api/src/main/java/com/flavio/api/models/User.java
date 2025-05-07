@@ -2,6 +2,9 @@ package com.flavio.api.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -19,6 +22,7 @@ public class User {
     private String password;
     private Role role;
     @ManyToMany(mappedBy = "users")
+    @JsonIgnore 
     private List<Task> tasks;
 
     public User() {}

@@ -138,7 +138,11 @@ export const getTaskByIdByProject = async (projectId, id) => {
  * @returns {Promise<void>} - No retorna nada, solo realiza la creación de la tarea.
  */
 export const createTask = async (dataTask) => {
-    await api.post('tasks/', dataTask); // Envia una solicitud POST para crear una nueva tarea.
+    await api.post('tasks/', dataTask, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    }); // Envia una solicitud POST para crear una nueva tarea.
 }
 
 /**
@@ -162,7 +166,11 @@ export const deleteTask = async (id) => {
  * @returns {Promise<Object>} - Retorna los datos actualizados de la tarea.
  */
 export const updateTask = async (id, dataTask) => {
-    const { data } = await api.put(`tasks/${id}`, dataTask); // Envia una solicitud PUT para actualizar los datos de la tarea.
+    const { data } = await api.put(`tasks/${id}`, dataTask, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+    }); // Envia una solicitud PUT para actualizar los datos de la tarea.
     return data; // Devuelve los datos actualizados de la tarea.
 }
 

@@ -7,7 +7,13 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.flavio.api.models.Project;
 import com.flavio.api.models.Task;
+import com.flavio.api.models.TaskDTO;
+import com.flavio.api.models.User;
+import com.flavio.api.repositories.ProjectRepository;
+import com.flavio.api.repositories.UserRepository;
 import com.flavio.api.services.TaskService;
 import java.util.List;
 import java.util.Optional;
@@ -19,9 +25,13 @@ import java.util.Optional;
 public class TaskController {
 
     private final TaskService taskService;
+    public final ProjectRepository projectRepository;
+    public final UserRepository userRepository;
 
-    public TaskController(TaskService taskService) {
+    public TaskController(TaskService taskService, ProjectRepository projectRepository, UserRepository userRepository) {
         this.taskService = taskService;
+        this.projectRepository = projectRepository;
+        this.userRepository = userRepository;
     }
 
     @Operation(summary = "Endpoint para obtener todas las tareas")
@@ -76,7 +86,24 @@ public class TaskController {
             @ApiResponse(responseCode = "500", description = "Error interno del servidor")
     })
     @PostMapping("/")
-    public ResponseEntity<Task> createTask(@RequestBody Task task) {
+    public ResponseEntity<Task> createTask(@RequestBody TaskDTO taskDTO) {
+        Project project = projectRepository.findById(taskDTO.projectId).orElseThrow();
+        List<User> users = userRepository.findAllById(taskDTO.userIds);
+
+        String dataUsers = users.stream()
+            .map(user -> user.getId() + " " + user.getName() + " " + user.getSurnames())
+            .reduce("", (acc, user) -> acc + user + "\n");
+        
+        Task task = new Task(
+            taskDTO.content,
+            users,
+            taskDTO.time,
+            taskDTO.priority,
+            project,
+            dataUsers
+        );
+        task.setStatus(taskDTO.status);
+
         Task savedTask = taskService.saveTask(task);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedTask);
     }
@@ -84,8 +111,16 @@ public class TaskController {
     @Operation(summary = "Endpoint para actualizar una tarea dado su id")
     @PutMapping("/{id}")
     public void updateTask(@PathVariable Long id, @RequestBody Task task) {
-        if (taskService.getTaskById(id).isPresent())
-            taskService.updateTask(task);
+        var taskOpt = taskService.getTaskById(id);
+        if (taskOpt.isPresent()) {
+            Task existingTask = taskOpt.get();
+            existingTask.setContent(task.getContent());
+            existingTask.setStatus(task.getStatus());
+            existingTask.setPriority(task.getPriority());
+            existingTask.setTime(task.getTime());
+            existingTask.setdataUsers(task.getdataUsers());
+            taskService.updateTask(existingTask);
+        }
     }
 
     @Operation(summary = "Endpoint para actualizar el estado de una tarea dado su id")

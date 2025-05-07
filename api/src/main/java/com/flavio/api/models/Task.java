@@ -3,6 +3,9 @@ package com.flavio.api.models;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tasks")
 public class Task {
@@ -14,6 +17,8 @@ public class Task {
     private String content;
 
     @ManyToMany
+    @JsonBackReference
+    @JsonIgnore 
     @JoinTable(
         name = "task_users",
         joinColumns = @JoinColumn(name = "task_id"),
@@ -27,15 +32,17 @@ public class Task {
 
     private int time, status = 0;
     private String priority;
+    private String dataUsers;
 
     public Task() {}
 
-    public Task(String content, List<User> users, int time, String priority, Project project) {
+    public Task(String content, List<User> users, int time, String priority, Project project, String dataUsers) {
         this.content = content;
         this.users = users;
         this.time = time;
         this.priority = priority;
         this.project = project;
+        this.dataUsers = dataUsers;
     }
 
     public Long getId() {
@@ -92,5 +99,13 @@ public class Task {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public String getdataUsers() {
+        return dataUsers;
+    }
+
+    public void setdataUsers(String dataUsers) {
+        this.dataUsers = dataUsers;
     }
 }

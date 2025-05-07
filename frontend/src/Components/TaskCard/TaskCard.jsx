@@ -34,6 +34,8 @@ import pen from '../../assets/pen.png';  // Asegúrate de tener la imagen en la 
 const ItemType = 'TASK';
 
 const TaskCard = ({ task, onRequestDelete, onMoveLeft, onMoveRight }) => {
+    console.log(task);
+    
     return (
         <div className='task-card'>
             <div className='task-card-header'>
@@ -42,6 +44,7 @@ const TaskCard = ({ task, onRequestDelete, onMoveLeft, onMoveRight }) => {
                     <p>Prioridad: {task.priority}</p>
                     <p>Días estimados: {task.time}</p>
                     <p><b>{task.project.name}</b></p>
+                    <p>Desarrolladores asignados: {task.dataUsers}</p>
                 </div>
             </div>
             <div className='task-card-footer'>
