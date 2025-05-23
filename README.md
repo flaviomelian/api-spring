@@ -26,10 +26,10 @@ projects-management/
 <br>├── main/ 
 <br>├── java/ 
 <br>│ └── com.flavio.api/ 
-<br>│ ├── controllers/ 
-<br>│ ├── models/ 
-<br>│ ├── repositories/ 
-<br>│ └── services/ 
+<br>│          ├── controllers/ 
+<br>│          ├── models/ 
+<br>│          ├── repositories/ 
+<br>│          └── services/ 
 <br>├── resources/ 
 <br>├── application.properties 
 <br>├── pom.xml
